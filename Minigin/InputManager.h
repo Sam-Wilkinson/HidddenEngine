@@ -16,10 +16,11 @@ namespace Hidden
 
 		friend class Singleton;
 
-		InputManager(const InputManager& other) = default; // copy constructor
-		InputManager(InputManager&& other) noexcept = default; // move constructor
-		InputManager& operator=(const InputManager& other) = default; // copy assignment
-		InputManager& operator=(InputManager&& other) noexcept = default; // move assignment
+
+		InputManager(const InputManager& other) = delete; // copy constructor
+		InputManager(InputManager&& other) noexcept = delete; // move constructor
+		InputManager& operator=(const InputManager& other) = delete; // copy assignment
+		InputManager& operator=(InputManager&& other) noexcept = delete; // move assignment
 
 		bool ProcessInput();
 		std::weak_ptr<Command> IsPressed(std::pair<unsigned int, XBox360Controller::ControllerButton> commandKey) const;
