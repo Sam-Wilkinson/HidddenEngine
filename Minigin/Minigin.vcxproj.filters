@@ -85,6 +85,21 @@
     <Filter Include="imgui\Source Files">
       <UniqueIdentifier>{15a29a5b-7b1c-450d-ad2f-bb13607fdd01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Input\Xbox360Controller">
+      <UniqueIdentifier>{c92db318-ce0c-404e-991d-409eb3a25f58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{3f09915a-d775-4f2d-b0e7-fe100fc34ea2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\EmptyCommand">
+      <UniqueIdentifier>{a5379dee-dfe7-4081-b085-2866a2d9bc96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\ErrorCommand">
+      <UniqueIdentifier>{652cac5e-7caa-4c0f-a32e-21d707bd0e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\BaseCommand">
+      <UniqueIdentifier>{ff3b0bb3-4a38-4330-8631-2e418bb73613}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Minigin.h">
@@ -168,6 +183,18 @@
     <ClInclude Include="..\3rdParty\imgui-1.81\imstb_truetype.h">
       <Filter>imgui\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Xbox360Controller.h">
+      <Filter>Source Files\Input\Xbox360Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorCommand.h">
+      <Filter>Source Files\Commands\ErrorCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyCommand.h">
+      <Filter>Source Files\Commands\EmptyCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Source Files\Commands\BaseCommand</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -241,6 +268,18 @@
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui-1.81\imgui_widgets.cpp">
       <Filter>imgui\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Xbox360Controller.cpp">
+      <Filter>Source Files\Input\Xbox360Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorCommand.cpp">
+      <Filter>Source Files\Commands\ErrorCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyCommand.cpp">
+      <Filter>Source Files\Commands\EmptyCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files\Commands\BaseCommand</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
