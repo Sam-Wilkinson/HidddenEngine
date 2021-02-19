@@ -40,7 +40,6 @@ void Hidden::Minigin::Initialize()
 
 	Renderer::GetInstance().Init(m_Window);
 
-
 }
 
 /**
@@ -142,8 +141,10 @@ void Hidden::Minigin::Run()
 		renderer.Render();
 
 		lastTime = currentTime;
+
+		const auto sleepTime = currentTime + milliseconds(GameConfig::MsPerFrame) - high_resolution_clock::now();
+		this_thread::sleep_for(sleepTime);
 	}
 	
-
 	Cleanup();
 }

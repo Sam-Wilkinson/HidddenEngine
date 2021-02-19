@@ -76,6 +76,15 @@
     <Filter Include="Header Files\Game Config">
       <UniqueIdentifier>{6c2bdb11-f80d-41f6-9469-41be414d0dbd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{6dff12c2-3a33-4c4c-8ca0-bcd7b1ec7874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\Header Files">
+      <UniqueIdentifier>{8246f3e2-2e28-4c16-b8be-661fd8448ca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\Source Files">
+      <UniqueIdentifier>{15a29a5b-7b1c-450d-ad2f-bb13607fdd01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Minigin.h">
@@ -135,6 +144,30 @@
     <ClInclude Include="GameConfig.h">
       <Filter>Header Files\Game Config</Filter>
     </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\imconfig.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\imgui.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\backends\imgui_impl_opengl2.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\backends\imgui_impl_sdl.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\imgui_internal.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\imstb_rectpack.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\imstb_textedit.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui-1.81\imstb_truetype.h">
+      <Filter>imgui\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -187,6 +220,27 @@
     </ClCompile>
     <ClCompile Include="FPSComponent.cpp">
       <Filter>Source Files\Components\FPS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui-1.81\imgui.cpp">
+      <Filter>imgui\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui-1.81\imgui_demo.cpp">
+      <Filter>imgui\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui-1.81\imgui_draw.cpp">
+      <Filter>imgui\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui-1.81\backends\imgui_impl_opengl2.cpp">
+      <Filter>imgui\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui-1.81\backends\imgui_impl_sdl.cpp">
+      <Filter>imgui\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui-1.81\imgui_tables.cpp">
+      <Filter>imgui\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui-1.81\imgui_widgets.cpp">
+      <Filter>imgui\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
