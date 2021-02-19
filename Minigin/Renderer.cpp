@@ -34,6 +34,13 @@ void Hidden::Renderer::Render()
 	{
 		ImGui::ShowDemoWindow(&m_ShowDemo);
 	}
+	ImGui::Begin("Game Modes");
+	ImGui::Button("single player");
+	ImGui::Button("co-op");
+	ImGui::Button("versus");
+
+	ImGui::End();
+
 	ImGui::Render();
 	ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 	

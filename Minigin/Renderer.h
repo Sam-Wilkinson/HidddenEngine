@@ -28,7 +28,7 @@ namespace Hidden
 		SDL_Renderer* m_Renderer{};
 		SDL_Window* m_Window;
 
-		bool m_ShowDemo = true;
+		bool m_ShowDemo = false;
 
 	};
 }
