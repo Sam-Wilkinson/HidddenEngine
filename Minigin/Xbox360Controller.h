@@ -10,20 +10,27 @@ namespace Hidden
 	public:
 		enum class ControllerButton
 		{
-			ButtonA,
-			ButtonB,
-			ButtonX,
-			ButtonY,
-			DpadDown,
-			DpadUp,
-			DpadLeft,
-			DpadRight,
-			ButtonStart,
-			ButtonBack,
-			ButtonLeftBack,
-			ButtonRightBack,
-			ButtonLeftThumb,
-			ButtonRightThumb,
+
+			NoAction,
+
+			ButtonA = XINPUT_GAMEPAD_A,
+			ButtonB = XINPUT_GAMEPAD_B,
+			ButtonX = XINPUT_GAMEPAD_X,
+			ButtonY = XINPUT_GAMEPAD_Y,
+
+			DpadDown = XINPUT_GAMEPAD_DPAD_DOWN,
+			DpadUp = XINPUT_GAMEPAD_DPAD_UP,
+			DpadLeft = XINPUT_GAMEPAD_DPAD_LEFT,
+			DpadRight = XINPUT_GAMEPAD_DPAD_RIGHT,
+
+			ButtonStart = XINPUT_GAMEPAD_START,
+			ButtonBack = XINPUT_GAMEPAD_BACK,
+
+			ButtonLeftBack = XINPUT_GAMEPAD_LEFT_SHOULDER,
+			ButtonRightBack = XINPUT_GAMEPAD_RIGHT_SHOULDER,
+			ButtonLeftThumb = XINPUT_GAMEPAD_LEFT_THUMB,
+			ButtonRightThumb = XINPUT_GAMEPAD_RIGHT_THUMB,
+
 			TriggerLeft,
 			TriggerRight
 		};
