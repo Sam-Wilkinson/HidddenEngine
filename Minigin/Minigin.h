@@ -1,5 +1,6 @@
 #pragma once
 struct SDL_Window;
+
 namespace Hidden
 {
 	class Minigin
@@ -12,4 +13,8 @@ namespace Hidden
 	private:
 		SDL_Window* m_Window{};
 	};
+
+	// To be defined in client
+	Minigin* CreateApplication();
+
 }
