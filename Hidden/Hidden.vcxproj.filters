@@ -100,6 +100,12 @@
     <Filter Include="Source Files\Commands\BaseCommand">
       <UniqueIdentifier>{ff3b0bb3-4a38-4330-8631-2e418bb73613}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Observer">
+      <UniqueIdentifier>{ef256ed0-8663-43ed-afb7-c00f4ff5bd65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Subject">
+      <UniqueIdentifier>{492b6c75-ed7d-4575-b1d0-4513f8daddd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -198,6 +204,12 @@
     <ClInclude Include="HiddenPCH.h">
       <Filter>Source Files\Minigin\PCH</Filter>
     </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Source Files\Subject</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Source Files\Observer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -280,6 +292,12 @@
     </ClCompile>
     <ClCompile Include="HiddenPCH.cpp">
       <Filter>Source Files\Minigin\PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Source Files\Subject</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Source Files\Observer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
