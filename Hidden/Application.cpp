@@ -47,6 +47,55 @@ void Hidden::Application::Initialize()
  */
 void Hidden::Application::LoadGame() const
 {
+	LoadDemo();
+}
+
+void Hidden::Application::Cleanup()
+{
+	Renderer::GetInstance().Destroy();
+	SDL_DestroyWindow(m_Window);
+	m_Window = nullptr;
+	SDL_Quit();
+}
+
+void Hidden::Application::Run()
+{
+	Initialize();
+
+	// tell the resource manager where he can find the game data
+	ResourceManager::GetInstance().Init("../Data/");
+
+	LoadGame();
+
+	auto& renderer = Renderer::GetInstance();
+	auto& sceneManager = SceneManager::GetInstance();
+	auto& input = InputManager::GetInstance();
+
+	bool doContinue = true;
+	auto lastTime = high_resolution_clock::now();
+	while (doContinue)
+	{
+		const auto currentTime = high_resolution_clock::now();
+		// deltaTime = how much time has passed since the last frame
+		Time::GetInstance().SetTime(duration<float>(currentTime - lastTime).count());
+
+		doContinue = input.ProcessInput();
+		sceneManager.Update();
+		renderer.Render();
+
+		lastTime = currentTime;
+
+		const auto sleepTime = currentTime + milliseconds(GameConfig::MsPerFrame) - high_resolution_clock::now();
+		this_thread::sleep_for(sleepTime);
+	}
+	
+	Cleanup();
+	Application::Cleanup();
+}
+
+
+void Hidden::Application::LoadDemo() const
+{
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 
 	// Register components here
@@ -100,51 +149,9 @@ void Hidden::Application::LoadGame() const
 	go->AddComponent(textComponent);
 	go->AddComponent(renderComponent);
 	renderComponent->SetParentGameObject(go);
-	
+
 	go->SetPosition(10, 20);
 
 	scene.Add(go);
 	scene.AddRenderable(renderComponent);
-}
-
-void Hidden::Application::Cleanup()
-{
-	Renderer::GetInstance().Destroy();
-	SDL_DestroyWindow(m_Window);
-	m_Window = nullptr;
-	SDL_Quit();
-}
-
-void Hidden::Application::Run()
-{
-	Initialize();
-
-	// tell the resource manager where he can find the game data
-	ResourceManager::GetInstance().Init("../Data/");
-
-	LoadGame();
-
-	auto& renderer = Renderer::GetInstance();
-	auto& sceneManager = SceneManager::GetInstance();
-	auto& input = InputManager::GetInstance();
-
-	bool doContinue = true;
-	auto lastTime = high_resolution_clock::now();
-	while (doContinue)
-	{
-		const auto currentTime = high_resolution_clock::now();
-		// deltaTime = how much time has passed since the last frame
-		Time::GetInstance().SetTime(duration<float>(currentTime - lastTime).count());
-
-		doContinue = input.ProcessInput();
-		sceneManager.Update();
-		renderer.Render();
-
-		lastTime = currentTime;
-
-		const auto sleepTime = currentTime + milliseconds(GameConfig::MsPerFrame) - high_resolution_clock::now();
-		this_thread::sleep_for(sleepTime);
-	}
-	
-	Cleanup();
 }

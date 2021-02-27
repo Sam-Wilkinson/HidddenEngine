@@ -7,11 +7,14 @@ namespace Hidden
 	{
 	public:
 		void Initialize();
-		void LoadGame() const;
-		void Cleanup();
+		virtual void LoadGame() const;
+		virtual void Cleanup();
 		void Run();
 	private:
 		SDL_Window* m_Window{};
+
+		void LoadDemo() const ;
+
 	};
 
 	// To be defined in client
