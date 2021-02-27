@@ -5,6 +5,8 @@
 Hidden::XBox360Controller::XBox360Controller()
 	:m_States{}
 	, m_TriggerDepressionSensitivity{ 0.5f }
+	, m_CurrentStateIndex{0}
+	, m_PreviousStateIndex{1}
 {
 
 }
@@ -19,7 +21,6 @@ void Hidden::XBox360Controller::SwapStates()
 
 bool Hidden::XBox360Controller::ProcessInput(unsigned int index)
 {
-	// todo: read the input
 	SwapStates();
 
 	// Zero out the state information so that it is ready to be used later
@@ -36,14 +37,13 @@ bool Hidden::XBox360Controller::ProcessInput(unsigned int index)
 	}
 }
 
-bool Hidden::XBox360Controller::IsPressed(ControllerButton button)
+bool Hidden::XBox360Controller::IsPressed(ControllerButton button) const
 {
 	// todo: return whether the given button is pressed or not.
 
 	// Checks whether the currentState has the button pressed down and returns true if it does
 
 	return m_States[m_CurrentStateIndex].Gamepad.wButtons & static_cast<int>(button);
-
 
 	// Triggers check whether value is greater than sensitivity value
 	//switch (button)
@@ -120,14 +120,13 @@ bool Hidden::XBox360Controller::IsPressed(ControllerButton button)
 	//return false;
 
 }
-
-bool Hidden::XBox360Controller::OnPressed(ControllerButton button)
+ 
+bool Hidden::XBox360Controller::OnPressed(ControllerButton button) const
 {
 
 	// Checks whether the current state has the button pressed down and if the currentState does not match the state in the previous frame
 
 	return m_States[m_CurrentStateIndex].Gamepad.wButtons & static_cast<int>(button) && ((m_States[m_CurrentStateIndex].Gamepad.wButtons & static_cast<int>(button)) != (m_States[m_PreviousStateIndex].Gamepad.wButtons & static_cast<int>(button)));
-
 
 	// Triggers check whether value is greater than sensitivity value and that the value was less than sensitivity value previous frame
 	//switch (button)
@@ -205,13 +204,12 @@ bool Hidden::XBox360Controller::OnPressed(ControllerButton button)
 	//
 }
 
-bool Hidden::XBox360Controller::OnReleased(ControllerButton button)
+bool Hidden::XBox360Controller::OnReleased(ControllerButton button) const
 {
 
 	// Checks whether the current state has the button not pressed down and if the currentState does not match the state in the previous frame
 
 	return (!(m_States[m_CurrentStateIndex].Gamepad.wButtons & static_cast<int>(button)) && ((m_States[m_CurrentStateIndex].Gamepad.wButtons & static_cast<int>(button)) != (m_States[m_PreviousStateIndex].Gamepad.wButtons & static_cast<int>(button))));
-
 
 	// Triggers check whether value is less than sensitivity value and that the value was greater than sensitivity value previous frame
 	//switch (button)
@@ -289,7 +287,7 @@ bool Hidden::XBox360Controller::OnReleased(ControllerButton button)
 	//
 }
 
-bool Hidden::XBox360Controller::IsActivated(const std::pair<ControllerButton, ButtonEventType>& command)
+bool Hidden::XBox360Controller::IsActivated(const std::pair<ControllerButton, ButtonEventType>& command) const
 {
 	// Check buttonEventType
 	// Call appropriate function
@@ -308,31 +306,41 @@ bool Hidden::XBox360Controller::IsActivated(const std::pair<ControllerButton, Bu
 	return false;
 }
 
-const float Hidden::XBox360Controller::GetLeftTriggerDepression()
+const float Hidden::XBox360Controller::GetLeftTriggerDepression() const
 {
 	const float range{ 255.0f };
 
 	return float(m_States[m_CurrentStateIndex].Gamepad.bLeftTrigger / range);
 }
 
-const float Hidden::XBox360Controller::GetRightTriggerDepression()
+const bool Hidden::XBox360Controller::IsLeftTriggerPressed() const
+{
+	return GetLeftTriggerDepression() > m_TriggerDepressionSensitivity;
+}
+
+const float Hidden::XBox360Controller::GetRightTriggerDepression() const
 {
 	const float range{ 255.0f };
 	return float(m_States[m_CurrentStateIndex].Gamepad.bRightTrigger / range);
 }
 
-void Hidden::XBox360Controller::setTriggerDepressionSensitivity(float sensitivity)
+const bool Hidden::XBox360Controller::IsRightTriggerPressed() const
+{
+	return GetRightTriggerDepression() > m_TriggerDepressionSensitivity;
+}
+
+void Hidden::XBox360Controller::SetTriggerDepressionSensitivity(float sensitivity) 
 {
 	m_TriggerDepressionSensitivity = sensitivity;
 }
 
-const float Hidden::XBox360Controller::GetPreviousLeftTriggerDepression()
+const float Hidden::XBox360Controller::GetPreviousLeftTriggerDepression() const
 {
 	const float range{ 255.0f };
 	return float(m_States[m_PreviousStateIndex].Gamepad.bLeftTrigger / range);
 }
 
-const float Hidden::XBox360Controller::GetPreviousRightTriggerDepression()
+const float Hidden::XBox360Controller::GetPreviousRightTriggerDepression() const
 {
 	const float range{ 255.0f };
 	return float(m_States[m_PreviousStateIndex].Gamepad.bRightTrigger / range);

@@ -52,27 +52,28 @@ namespace Hidden
 
 		bool ProcessInput(unsigned int index);
 
-		bool IsPressed(ControllerButton button);
-		bool OnPressed(ControllerButton button);
-		bool OnReleased(ControllerButton button);
-		bool IsActivated(const std::pair<ControllerButton, ButtonEventType>& command);
+		bool IsPressed(ControllerButton button) const;
+		bool OnPressed(ControllerButton button) const;
+		bool OnReleased(ControllerButton button) const;
+		bool IsActivated(const std::pair<ControllerButton, ButtonEventType>& command) const;
 
-		const float GetLeftTriggerDepression();
-		const float GetRightTriggerDepression();
-
-		void setTriggerDepressionSensitivity(float sensitivity = 0.5f);
+		const float GetLeftTriggerDepression() const;
+		const bool IsLeftTriggerPressed() const;
+		const float GetRightTriggerDepression() const;
+		const bool IsRightTriggerPressed() const;
+		void SetTriggerDepressionSensitivity(float sensitivity = 0.5f);
 
 	private:
 		void SwapStates();
-		const float GetPreviousLeftTriggerDepression();
-		const float GetPreviousRightTriggerDepression();
+		const float GetPreviousLeftTriggerDepression() const;
+		const float GetPreviousRightTriggerDepression() const;
 
 
 		static const unsigned int m_NrStates = 2;
 		XINPUT_STATE m_States[m_NrStates];
 
-		unsigned int m_CurrentStateIndex = 0;
-		unsigned int m_PreviousStateIndex = 1;
+		unsigned int m_CurrentStateIndex;
+		unsigned int m_PreviousStateIndex ;
 
 		float m_TriggerDepressionSensitivity;
 
