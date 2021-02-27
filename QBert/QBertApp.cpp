@@ -1,16 +1,6 @@
 #pragma once
-#include "Application.h"
+#include "QbertApp.h"
 #include "Main.h"
-
-class QBert : public Hidden::Application
-{
-public:
-	QBert() = default;
-	~QBert() = default;
-
-private:
-
-};
 
 
 Hidden::Application* Hidden::CreateApplication()
@@ -18,3 +8,12 @@ Hidden::Application* Hidden::CreateApplication()
 	return new QBert{};
 }
 
+using namespace Hidden;
+
+void QBert::LoadGame() const
+{
+}
+
+void QBert::Cleanup()
+{
+}
