@@ -1,4 +1,4 @@
-#include "MiniginPCH.h"
+#include "HiddenPCH.h"
 #include "Renderer.h"
 #include <SDL.h>
 #include "SceneManager.h"

@@ -1,5 +1,5 @@
-#include "MiniginPCH.h"
-#include "Minigin.h"
+#include "HiddenPCH.h"
+#include "Application.h"
 #include <chrono>
 #include <thread>
 #include "InputManager.h"
@@ -18,7 +18,7 @@
 using namespace std;
 using namespace std::chrono;
 
-void Hidden::Minigin::Initialize()
+void Hidden::Application::Initialize()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) 
 	{
@@ -45,7 +45,7 @@ void Hidden::Minigin::Initialize()
 /**
  * Code constructing the scene world starts here
  */
-void Hidden::Minigin::LoadGame() const
+void Hidden::Application::LoadGame() const
 {
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 
@@ -107,7 +107,7 @@ void Hidden::Minigin::LoadGame() const
 	scene.AddRenderable(renderComponent);
 }
 
-void Hidden::Minigin::Cleanup()
+void Hidden::Application::Cleanup()
 {
 	Renderer::GetInstance().Destroy();
 	SDL_DestroyWindow(m_Window);
@@ -115,7 +115,7 @@ void Hidden::Minigin::Cleanup()
 	SDL_Quit();
 }
 
-void Hidden::Minigin::Run()
+void Hidden::Application::Run()
 {
 	Initialize();
 

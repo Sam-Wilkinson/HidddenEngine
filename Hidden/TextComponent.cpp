@@ -1,4 +1,4 @@
-#include "MiniginPCH.h"
+#include "HiddenPCH.h"
 #include "TextComponent.h"
 
 #include <SDL.h>

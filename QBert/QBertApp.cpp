@@ -1,8 +1,8 @@
 #pragma once
-#include "Minigin.h"
+#include "Application.h"
 #include "Main.h"
 
-class QBert : public Hidden::Minigin
+class QBert : public Hidden::Application
 {
 public:
 	QBert() = default;
@@ -13,7 +13,7 @@ private:
 };
 
 
-Hidden::Minigin* Hidden::CreateApplication()
+Hidden::Application* Hidden::CreateApplication()
 {
 	return new QBert{};
 }

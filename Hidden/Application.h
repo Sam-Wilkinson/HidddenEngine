@@ -3,7 +3,7 @@ struct SDL_Window;
 
 namespace Hidden
 {
-	class Minigin
+	class Application
 	{
 	public:
 		void Initialize();
@@ -15,6 +15,6 @@ namespace Hidden
 	};
 
 	// To be defined in client
-	Minigin* CreateApplication();
+	Application* CreateApplication();
 
 }
