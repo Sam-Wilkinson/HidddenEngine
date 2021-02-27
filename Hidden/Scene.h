@@ -10,6 +10,10 @@ namespace Hidden
 	public:
 		void Add(const std::shared_ptr<SceneObject>& object);
 		void AddRenderable(const std::weak_ptr<RenderComponent>& renderComponent);
+
+		void Remove(const std::shared_ptr<SceneObject>& object);
+		void RemoveRenderable(const std::weak_ptr<RenderComponent>& renderComponent);
+
 		void Update();
 		void Render() const;
 
