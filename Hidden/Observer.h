@@ -17,7 +17,7 @@ class Observer
 		Observer& operator=(const Observer& other) = default; // copy assignment
 		Observer& operator=(Observer&& other) noexcept = default; // move assignment
 
-		virtual void onNotify(const T& data)= 0;
+		virtual void onNotify(const T& data) = 0;
 	protected:
 
 	private:

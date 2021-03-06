@@ -10,7 +10,8 @@ using namespace Hidden;
 
 class UILivesComponent final : public Component, public Observer<HealthComponent>
 {
-	UILivesComponent(const std::weak_ptr<TextComponent> textComponent);
+public:
+	UILivesComponent(size_t initialHealth, const std::weak_ptr<TextComponent> textComponent);
 	~UILivesComponent() = default;
 
 	UILivesComponent(const UILivesComponent & other) = delete;
