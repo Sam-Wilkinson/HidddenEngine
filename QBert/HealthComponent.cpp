@@ -3,7 +3,7 @@
 
 void HealthComponent::Update()
 {
-	//m_pSubject->Notify(*this);
+	m_pSubject.lock()->Notify(*this);
 }
 
 const unsigned int HealthComponent::getHealth() const

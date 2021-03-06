@@ -35,7 +35,7 @@ void Hidden::Subject<T>::Notify(const T& data)
 		}
 		else
 		{
-			// Will this work? We are changing m_pObservers while looping through it
+			//TODO Will this work? We are changing m_pObservers while looping through it
 			RemoveObserver(observer.lock());
 		}
 	}

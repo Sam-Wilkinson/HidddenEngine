@@ -8,6 +8,13 @@ using namespace Hidden;
 class HealthComponent : public Component
 {
 public:
+
+	enum class events
+	{
+		lifeLost,
+		Death
+	};
+
 	HealthComponent() = default;
 	~HealthComponent() = default;
 
@@ -18,10 +25,14 @@ public:
 
 	void Update() override;
 	const unsigned int getHealth() const;
+
+
 	std::weak_ptr<Subject<HealthComponent>> GetSubject();
 
 private:
 	unsigned int m_Health;
-	std::shared_ptr<Subject<HealthComponent>> m_pSubject;
+
+	std::weak_ptr<Subject<HealthComponent>> m_pSubject;
+
 };
 

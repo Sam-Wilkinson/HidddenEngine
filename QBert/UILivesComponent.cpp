@@ -18,3 +18,5 @@ void UILivesComponent::onNotify(const HealthComponent& data)
 	// if lived = 0, death!!!
 
 }
+
+

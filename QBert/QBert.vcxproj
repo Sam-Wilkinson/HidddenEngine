@@ -170,8 +170,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HealthComponent.h" />
-    <ClInclude Include="UILivesComponent.h" />
     <ClInclude Include="QBertApp.h" />
+    <ClInclude Include="UILivesComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
