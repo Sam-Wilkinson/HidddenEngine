@@ -5,8 +5,8 @@ class Component;
 namespace Hidden
 {
 	template <class T>
-	class Observer
-	{
+class Observer
+{
 	public:
 		Observer() = default;
 		virtual ~Observer() = default;
@@ -22,7 +22,7 @@ namespace Hidden
 
 	private:
 
-	};
+};
 }
 
 

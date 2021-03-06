@@ -7,8 +7,8 @@ class Component;
 namespace Hidden
 {
     template <class T>
-    class Subject
-    {
+class Subject
+{
     public:
         Subject() = default;
         virtual ~Subject() = default;
@@ -30,7 +30,7 @@ namespace Hidden
     private:
         std::list<std::weak_ptr<Observer<T>>> m_pObservers;
 
-    };
+};
 
    //template<typename T>
    //inline std::shared_ptr<Observer<T>> Subject::GetObserver()
