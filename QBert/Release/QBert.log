@@ -1,9 +1,0 @@
-﻿  HealthComponent.cpp
-  UILivesComponent.cpp
-  QBertApp.cpp
-     Creating library C:\Users\Sam Wilkinson\Desktop\Programming4\HiddenEngine\Release\QBert.lib and object C:\Users\Sam Wilkinson\Desktop\Programming4\HiddenEngine\Release\QBert.exp
-  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 2752 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  QBert.vcxproj -> C:\Users\Sam Wilkinson\Desktop\Programming4\HiddenEngine\Release\QBert.exe
