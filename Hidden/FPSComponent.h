@@ -18,9 +18,8 @@ namespace Hidden
 		void Update() override;
 
 	private:
-		float m_FPS;
-		int m_NrUpdates;
 		float m_TotalTime;
+		float m_FPS;
 		std::weak_ptr<TextComponent> m_TextComponent;
 	};
 }
