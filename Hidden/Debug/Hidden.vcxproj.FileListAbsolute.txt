@@ -1,2 +1,0 @@
-C:\Users\Sam Wilkinson\Desktop\Programming4\HiddenEngine\Debug\HiddenEngine.pdb
-C:\Users\Sam Wilkinson\Desktop\Programming4\HiddenEngine\Hidden\Debug\HiddenEngine.pdb
