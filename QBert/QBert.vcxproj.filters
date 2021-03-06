@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{efdee0bd-d7b9-4f8f-a6c9-de7b4bb53b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Lives">
+      <UniqueIdentifier>{2b44f259-f2f1-48a4-9d94-62da948abf4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Health">
+      <UniqueIdentifier>{30722c0c-7b7d-4060-af30-9d6331a5de37}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="QBertApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthComponent.cpp">
+      <Filter>Source Files\Components\Health</Filter>
+    </ClCompile>
+    <ClCompile Include="UILivesComponent.cpp">
+      <Filter>Source Files\Components\Lives</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="QBertApp.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthComponent.h">
+      <Filter>Source Files\Components\Health</Filter>
+    </ClInclude>
+    <ClInclude Include="UILivesComponent.h">
+      <Filter>Source Files\Components\Lives</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
