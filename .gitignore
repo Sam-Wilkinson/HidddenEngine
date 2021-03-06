@@ -31,8 +31,9 @@
 *.out
 *.app
 
-
 # Other Files
 *.vs
 *x64
 *win32
+*.Debug
+*.Release
