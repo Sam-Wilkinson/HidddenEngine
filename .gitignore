@@ -31,9 +31,9 @@
 *.out
 *.app
 
-# Other Files
+# Generated folders
 *.vs
 *x64
 *win32
-*.Debug
-*.Release
+*Debug
+*Release
