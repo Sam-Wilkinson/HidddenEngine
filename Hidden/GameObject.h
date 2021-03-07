@@ -2,6 +2,8 @@
 #include "Transform.h"
 #include "SceneObject.h"
 #include <vector>
+// TODO remove this include
+#include "..\QBert\HealthComponent.h"
 
 namespace Hidden
 {
@@ -28,8 +30,6 @@ namespace Hidden
 		template <typename T>
 		std::shared_ptr<T> GetComponent();
 
-
-
 	private:
 		Transform m_Transform;
 		std::vector<std::shared_ptr<Component>> m_Components;
@@ -40,8 +40,12 @@ namespace Hidden
 	{
 		for (auto bc : m_Components)
 		{
-			if (std::dynamic_pointer_cast<std::shared_ptr<T>>(bc))
+			auto result = std::dynamic_pointer_cast<HealthComponent>(bc);
+
+			if (std::dynamic_pointer_cast<T>(bc))
+			{
 				return std::static_pointer_cast<T>(bc);
+			}
 		}
 		return nullptr;
 	}
