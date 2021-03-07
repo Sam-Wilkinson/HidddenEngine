@@ -28,11 +28,23 @@
     <Filter Include="Source Files\Commands\LoseLife">
       <UniqueIdentifier>{d782144f-0af7-47d5-b7bd-5eafa329c994}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\Tile">
+      <UniqueIdentifier>{eff0b060-ea22-4abc-a8e9-be4c5d78749f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Discs">
+      <UniqueIdentifier>{15cedeef-7c5f-41d0-92ff-28f3af7bb55a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Coily">
+      <UniqueIdentifier>{a0154caa-695d-4352-9bdd-7515b78d2298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Onion">
+      <UniqueIdentifier>{b37ca333-b091-4521-880b-b4e5feb5631e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Score">
+      <UniqueIdentifier>{e773d887-10cd-4a79-b105-8943a4135dec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="QBertApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HealthComponent.cpp">
       <Filter>Source Files\Components\Health</Filter>
     </ClCompile>
@@ -41,6 +53,15 @@
     </ClCompile>
     <ClCompile Include="LoseLifeCommand.cpp">
       <Filter>Source Files\Commands\LoseLife</Filter>
+    </ClCompile>
+    <ClCompile Include="TileComponent.cpp">
+      <Filter>Source Files\Components\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="UIScoreComponent.cpp">
+      <Filter>Source Files\Components\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="QBertApp.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="LoseLifeCommand.h">
       <Filter>Source Files\Commands\LoseLife</Filter>
+    </ClInclude>
+    <ClInclude Include="TileComponent.h">
+      <Filter>Source Files\Components\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="UIScoreComponent.h">
+      <Filter>Source Files\Components\Score</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

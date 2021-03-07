@@ -94,10 +94,11 @@ void QBert::LoadGame() const
 	// *****
 	size_t initialHealth{ 10 };
 	go = std::make_shared<Hidden::GameObject>();
-	auto QBertHealth = std::make_shared<HealthComponent>(go,initialHealth);
+	auto QBertHealth = std::make_shared<HealthComponent>(go, initialHealth);
 	go->AddComponent(QBertHealth);
 	scene.Add(go);
-	//TODO add input here
+	
+	// add input here
 	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::ButtonA, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<LoseLifeCommand>());
 
 	// UI 
