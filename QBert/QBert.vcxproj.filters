@@ -43,6 +43,15 @@
     <Filter Include="Source Files\Components\Score">
       <UniqueIdentifier>{e773d887-10cd-4a79-b105-8943a4135dec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Observers">
+      <UniqueIdentifier>{ebb0fe62-db5f-4d2e-8617-219a8ba29aa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Observers\LivesObserver">
+      <UniqueIdentifier>{01b578ac-a3f6-4939-84e7-0e4d191783af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Death">
+      <UniqueIdentifier>{96af81bd-09d0-4e12-8301-dd3efdfb6f40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HealthComponent.cpp">
@@ -63,6 +72,12 @@
     <ClCompile Include="QBertApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LivesObserver.cpp">
+      <Filter>Source Files\Observers\LivesObserver</Filter>
+    </ClCompile>
+    <ClCompile Include="DeathCommand.cpp">
+      <Filter>Source Files\Commands\Death</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QBertApp.h">
@@ -82,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="UIScoreComponent.h">
       <Filter>Source Files\Components\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="LivesObserver.h">
+      <Filter>Source Files\Observers\LivesObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="DeathCommand.h">
+      <Filter>Source Files\Commands\Death</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

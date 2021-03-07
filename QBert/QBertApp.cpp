@@ -16,6 +16,10 @@
 
 // Commands
 #include "LoseLifeCommand.h"
+#include "DeathCommand.h"
+
+// Obserevers
+#include "LivesObserver.h"
 
 Hidden::Application* Hidden::CreateApplication()
 {
@@ -100,6 +104,7 @@ void QBert::LoadGame() const
 	
 	// add input here
 	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::ButtonA, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<LoseLifeCommand>());
+	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::ButtonB, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<DeathCommand>());
 
 	// UI 
 	// **
@@ -108,7 +113,10 @@ void QBert::LoadGame() const
 	auto UIHealthText = std::make_shared<TextComponent>(go,"NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
 	auto UIHealth = std::make_shared<UILivesComponent>(go,initialHealth, UIHealthText);
 
-	QBertHealth->GetSubject().lock()->AddObserver(UIHealth);
+	auto lifeObserver = std::make_shared<LivesObserver>();
+
+	QBertHealth->GetSubject().lock()->AddObserver(lifeObserver);
+	UIHealth->SetLivesObserver(lifeObserver);
 
 	go->AddComponent(UIHealth);
 	go->AddComponent(UIHealthText);

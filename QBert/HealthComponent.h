@@ -9,13 +9,13 @@ class HealthComponent : public Hidden::Component
 {
 public:
 
-	enum class events
+	enum class Event
 	{
 		lifeLost,
 		death
 	};
 
-	HealthComponent(std::weak_ptr<Hidden::GameObject> pParent,size_t initialHealth);
+	HealthComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialHealth);
 	~HealthComponent() = default;
 
 	HealthComponent(const HealthComponent & other) = default;
@@ -26,14 +26,14 @@ public:
 	void Update() override;
 	const size_t GetHealth() const;
 	void DecrementHealth();
-	const events GetCurrentEvent() const;
+	void SetHealth(size_t health);
+	const Event GetCurrentEvent() const;
 
 	std::weak_ptr<Subject<HealthComponent>> GetSubject();
 
-
 private:
 	size_t m_Health;
-	events m_CurrentEvent;
+	Event m_CurrentEvent;
 
 	std::shared_ptr<Subject<HealthComponent>> m_pSubject;
 

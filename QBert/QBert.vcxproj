@@ -127,6 +127,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)Hidden;$(SolutionDir)3rdParty\imgui-1.81;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;C:\Program Files (x86)\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>HiddenPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,6 +149,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)Hidden;$(SolutionDir)3rdParty\imgui-1.81;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;C:\Program Files (x86)\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>HiddenPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -164,7 +166,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DeathCommand.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="LivesObserver.cpp" />
     <ClCompile Include="LoseLifeCommand.cpp" />
     <ClCompile Include="TileComponent.cpp" />
     <ClCompile Include="UILivesComponent.cpp" />
@@ -172,7 +176,9 @@
     <ClCompile Include="UIScoreComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DeathCommand.h" />
     <ClInclude Include="HealthComponent.h" />
+    <ClInclude Include="LivesObserver.h" />
     <ClInclude Include="LoseLifeCommand.h" />
     <ClInclude Include="QBertApp.h" />
     <ClInclude Include="TileComponent.h" />
