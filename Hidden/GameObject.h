@@ -40,8 +40,6 @@ namespace Hidden
 	{
 		for (auto bc : m_Components)
 		{
-			auto result = std::dynamic_pointer_cast<HealthComponent>(bc);
-
 			if (std::dynamic_pointer_cast<T>(bc))
 			{
 				return std::static_pointer_cast<T>(bc);
