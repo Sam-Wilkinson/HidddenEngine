@@ -24,7 +24,7 @@ public:
 	HealthComponent& operator=(HealthComponent && other) = default;
 
 	void Update() override;
-	const unsigned int GetHealth() const;
+	const size_t GetHealth() const;
 	void DecrementHealth();
 	const events GetCurrentEvent() const;
 
@@ -32,7 +32,7 @@ public:
 
 
 private:
-	unsigned int m_Health;
+	size_t m_Health;
 	events m_CurrentEvent;
 
 	std::shared_ptr<Subject<HealthComponent>> m_pSubject;

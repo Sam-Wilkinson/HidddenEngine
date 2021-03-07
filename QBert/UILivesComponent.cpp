@@ -29,7 +29,8 @@ void UILivesComponent::onNotify(const HealthComponent& data)
 	}
 	else if(event == HealthComponent::events::death)
 	{
-		std::cout << "Player died!\n";
+		m_TextComponent.lock()->SetText("NrLives: " + std::to_string(0));
+		std::cout << "QBert Died!\n";
 	}
 }
 

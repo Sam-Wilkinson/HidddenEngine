@@ -24,7 +24,7 @@ public:
 	virtual void onNotify(const HealthComponent& data) override;
 
 private:
-	unsigned int m_NrLives{};
+	size_t m_NrLives{};
 	bool m_NeedsUpdate{false};
 	std::weak_ptr<TextComponent> m_TextComponent;
 
