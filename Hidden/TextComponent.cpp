@@ -8,12 +8,12 @@
 #include "Font.h"
 #include "Texture2D.h"
 
-
-Hidden::TextComponent::TextComponent(const std::string& text, const std::shared_ptr<Font>& font, const std::weak_ptr<RenderComponent>& renderComponent)
-	:Component(), m_Font{ font }, m_Text{ text }, m_RenderComponent{ renderComponent }, m_NeedsUpdate{ true }
+Hidden::TextComponent::TextComponent(std::weak_ptr<GameObject> pParent, const std::string& text, const std::shared_ptr<Font>& font, const std::weak_ptr<RenderComponent>& renderComponent)
+	:Component(pParent), m_Font{ font }, m_Text{ text }, m_RenderComponent{ renderComponent }, m_NeedsUpdate{ true }
 {
 	Update();
 }
+
 void Hidden::TextComponent::Update()
 {
 	if (m_NeedsUpdate)

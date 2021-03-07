@@ -165,11 +165,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="LoseLifeCommand.cpp" />
     <ClCompile Include="UILivesComponent.cpp" />
     <ClCompile Include="QBertApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HealthComponent.h" />
+    <ClInclude Include="LoseLifeCommand.h" />
     <ClInclude Include="QBertApp.h" />
     <ClInclude Include="UILivesComponent.h" />
   </ItemGroup>

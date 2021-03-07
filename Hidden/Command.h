@@ -1,7 +1,10 @@
 #pragma once
+#include <memory>
 
 namespace Hidden
 {
+    //class Component;
+    class GameObject;
     class Command
     {
     public:
@@ -12,7 +15,7 @@ namespace Hidden
         Command& operator=(const Command& other) = default; // copy assignment
         Command& operator=(Command&& other) noexcept = default; // move assignment
 
-        virtual int execute() = 0;
+        virtual int execute(std::shared_ptr<GameObject> pGameObject) = 0;
 
     protected:
 

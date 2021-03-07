@@ -9,7 +9,7 @@ namespace Hidden
 	class TextComponent final : public Component
 	{
 	public:
-		explicit TextComponent(const std::string& text, const std::shared_ptr<Font>& font, const std::weak_ptr<RenderComponent>& renderComponent);
+		explicit TextComponent(std::weak_ptr<GameObject> pParent, const std::string& text, const std::shared_ptr<Font>& font, const std::weak_ptr<RenderComponent>& renderComponent);
 		virtual ~TextComponent() = default;
 		TextComponent(const TextComponent& other) = delete;
 		TextComponent(TextComponent&& other) = delete;

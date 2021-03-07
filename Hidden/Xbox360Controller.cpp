@@ -27,14 +27,7 @@ bool Hidden::XBox360Controller::ProcessInput(unsigned int index)
 	ZeroMemory(&m_States[m_CurrentStateIndex], sizeof(XINPUT_STATE));
 
 	// Get the state of the first controller 
-	if (XInputGetState(index, &m_States[m_CurrentStateIndex]) == ERROR_SUCCESS)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return (XInputGetState(index, &m_States[m_CurrentStateIndex]) == ERROR_SUCCESS);
 }
 
 bool Hidden::XBox360Controller::IsPressed(ControllerButton button) const

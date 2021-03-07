@@ -5,7 +5,7 @@
 
 using namespace Hidden;
 
-class HealthComponent : public Component
+class HealthComponent : public Hidden::Component
 {
 public:
 
@@ -15,7 +15,7 @@ public:
 		death
 	};
 
-	HealthComponent(size_t initialHealth);
+	HealthComponent(std::weak_ptr<Hidden::GameObject> pParent,size_t initialHealth);
 	~HealthComponent() = default;
 
 	HealthComponent(const HealthComponent & other) = default;
@@ -24,8 +24,9 @@ public:
 	HealthComponent& operator=(HealthComponent && other) = default;
 
 	void Update() override;
-	const unsigned int getHealth() const;
-	const events getCurrentEvent() const;
+	const unsigned int GetHealth() const;
+	void DecrementHealth();
+	const events GetCurrentEvent() const;
 
 	std::weak_ptr<Subject<HealthComponent>> GetSubject();
 

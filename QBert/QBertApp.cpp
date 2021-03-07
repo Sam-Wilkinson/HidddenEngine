@@ -6,12 +6,16 @@
 #include "ResourceManager.h"
 #include "InputManager.h"
 
+// GameObject & Components
 #include "GameObject.h"
 #include "RenderComponent.h"
 #include "TextComponent.h"
 #include "FPSComponent.h"
 #include "HealthComponent.h"
 #include "UILivesComponent.h"
+
+// Commands
+#include "LoseLifeCommand.h"
 
 Hidden::Application* Hidden::CreateApplication()
 {
@@ -28,12 +32,10 @@ void QBert::LoadGame() const
 
 	// Background
 	// **********
-	auto go = std::make_shared<GameObject>();
+	auto go = std::make_shared<Hidden::GameObject>();
 	// Create RenderComponent and add Texture to it
-	auto renderComponent = std::make_shared<RenderComponent>();
+	auto renderComponent = std::make_shared<RenderComponent>(go);
 	renderComponent->SetTexture("background.jpg");
-	// Register the gameObject with the renderComponent
-	renderComponent->SetParentGameObject(go);
 	// Register it as renderable for the scene
 	scene.AddRenderable(renderComponent);
 	// Add the component to the gameObject ( This step is important!, scene only has weak_ptr to renderComponent so it wont keep it alive!)
@@ -44,9 +46,9 @@ void QBert::LoadGame() const
 	// Logo
 	// ****
 
-	go = std::make_shared<GameObject>();
+	go = std::make_shared<Hidden::GameObject>();
 	// Create RenderComponent and add Texture to it
-	renderComponent = std::make_shared<RenderComponent>();
+	renderComponent = std::make_shared<RenderComponent>(go);
 	renderComponent->SetTexture("logo.png");
 	// Register the gameObject with the renderComponent
 	renderComponent->SetParentGameObject(go);
@@ -57,33 +59,31 @@ void QBert::LoadGame() const
 	go->SetPosition(216, 180);
 	scene.Add(go);
 
-	go = std::make_shared<GameObject>();
+	go = std::make_shared<Hidden::GameObject>();
 
 	// Title
 	// *****
-	renderComponent = std::make_shared<RenderComponent>();
+	renderComponent = std::make_shared<RenderComponent>(go);
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
-	auto textComponent = std::make_shared<TextComponent>("Programming 4 Assignment", font, renderComponent);
+	auto textComponent = std::make_shared<TextComponent>(go,"Programming 4 Assignment", font, renderComponent);
 	//auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
 	go->AddComponent(textComponent);
 	go->AddComponent(renderComponent);
-	renderComponent->SetParentGameObject(go);
 	go->SetPosition(80, 20);
 	scene.AddRenderable(renderComponent);
 	scene.Add(go);
 
 	// FPS 
 	// ***
-	go = std::make_shared<GameObject>();
+	go = std::make_shared<Hidden::GameObject>();
 	auto fpsFont = ResourceManager::GetInstance().LoadFont("Lingua.otf", 24);
-	renderComponent = std::make_shared<RenderComponent>();
-	textComponent = std::make_shared<TextComponent>("0", fpsFont, renderComponent);
-	auto fpsComponent = std::make_shared<FPSComponent>(textComponent);
+	renderComponent = std::make_shared<RenderComponent>(go);
+	textComponent = std::make_shared<TextComponent>(go,"0", fpsFont, renderComponent);
+	auto fpsComponent = std::make_shared<FPSComponent>(go,textComponent);
 
 	go->AddComponent(fpsComponent);
 	go->AddComponent(textComponent);
 	go->AddComponent(renderComponent);
-	renderComponent->SetParentGameObject(go);
 
 	go->SetPosition(10, 20);
 
@@ -93,27 +93,25 @@ void QBert::LoadGame() const
 	// QBert
 	// *****
 	size_t initialHealth{ 10 };
-	go = std::make_shared<GameObject>();
-	auto QBertHealth = std::make_shared<HealthComponent>(initialHealth);
+	go = std::make_shared<Hidden::GameObject>();
+	auto QBertHealth = std::make_shared<HealthComponent>(go,initialHealth);
 	go->AddComponent(QBertHealth);
 	scene.Add(go);
 	//TODO add input here
-
-
+	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::ButtonA, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<LoseLifeCommand>());
 
 	// UI 
 	// **
-	go = std::make_shared<GameObject>();
-	auto UIRenderComponent = std::make_shared<RenderComponent>();
-	auto UIHealthText = std::make_shared<TextComponent>("NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
-	auto UIHealth = std::make_shared<UILivesComponent>(initialHealth, UIHealthText);
+	go = std::make_shared<Hidden::GameObject>();
+	auto UIRenderComponent = std::make_shared<RenderComponent>(go);
+	auto UIHealthText = std::make_shared<TextComponent>(go,"NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
+	auto UIHealth = std::make_shared<UILivesComponent>(go,initialHealth, UIHealthText);
 
 	QBertHealth->GetSubject().lock()->AddObserver(UIHealth);
 
 	go->AddComponent(UIHealth);
 	go->AddComponent(UIHealthText);
 	go->AddComponent(UIRenderComponent);
-	UIRenderComponent->SetParentGameObject(go);
 	go->SetPosition(10, 150);
 	scene.Add(go);
 	scene.AddRenderable(UIRenderComponent);

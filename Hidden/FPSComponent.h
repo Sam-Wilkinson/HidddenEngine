@@ -4,10 +4,11 @@
 
 namespace Hidden
 {
+	
 	class FPSComponent final : public Component
 	{
 	public:
-		FPSComponent(const std::weak_ptr<TextComponent> textComponent);
+		FPSComponent(const std::weak_ptr<GameObject> pParent, const std::weak_ptr<TextComponent> textComponent);
 		~FPSComponent() = default;
 		
 		FPSComponent(const FPSComponent& other) = delete;

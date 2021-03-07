@@ -22,6 +22,12 @@
     <Filter Include="Source Files\Components\Health">
       <UniqueIdentifier>{30722c0c-7b7d-4060-af30-9d6331a5de37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{7a84fe88-d891-4cd9-b17e-16e17ce5fe2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\LoseLife">
+      <UniqueIdentifier>{d782144f-0af7-47d5-b7bd-5eafa329c994}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="QBertApp.cpp">
@@ -33,6 +39,9 @@
     <ClCompile Include="UILivesComponent.cpp">
       <Filter>Source Files\Components\Lives</Filter>
     </ClCompile>
+    <ClCompile Include="LoseLifeCommand.cpp">
+      <Filter>Source Files\Commands\LoseLife</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QBertApp.h">
@@ -43,6 +52,9 @@
     </ClInclude>
     <ClInclude Include="UILivesComponent.h">
       <Filter>Source Files\Components\Lives</Filter>
+    </ClInclude>
+    <ClInclude Include="LoseLifeCommand.h">
+      <Filter>Source Files\Commands\LoseLife</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

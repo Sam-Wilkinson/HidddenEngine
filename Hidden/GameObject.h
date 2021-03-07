@@ -1,14 +1,21 @@
 #pragma once
 #include "Transform.h"
 #include "SceneObject.h"
-#include "Component.h"
-
+#include <vector>
 
 namespace Hidden
 {
+	class Component;
 	class GameObject final : public SceneObject
 	{
 	public:
+		GameObject() = default;
+		virtual ~GameObject();
+		GameObject(const GameObject & other) = delete;
+		GameObject(GameObject && other) = delete;
+		GameObject& operator=(const GameObject & other) = delete;
+		GameObject& operator=(GameObject && other) = delete;
+
 		void Update() override;
 
 		void SetPosition(float x, float y);
@@ -21,12 +28,7 @@ namespace Hidden
 		template <typename T>
 		std::shared_ptr<T> GetComponent();
 
-		GameObject() = default;
-		virtual ~GameObject();
-		GameObject(const GameObject& other) = delete;
-		GameObject(GameObject&& other) = delete;
-		GameObject& operator=(const GameObject& other) = delete;
-		GameObject& operator=(GameObject&& other) = delete;
+
 
 	private:
 		Transform m_Transform;

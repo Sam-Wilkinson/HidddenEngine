@@ -5,6 +5,8 @@
 #include "Transform.h"
 #include <algorithm>
 
+#include "Component.h"
+
 Hidden::GameObject::~GameObject() = default;
 
 void Hidden::GameObject::Update()
