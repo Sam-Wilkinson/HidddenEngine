@@ -153,9 +153,6 @@
     <ClInclude Include="FPSComponent.h">
       <Filter>Source Files\Components\FPS</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
-      <Filter>Source Files\Time</Filter>
-    </ClInclude>
     <ClInclude Include="GameConfig.h">
       <Filter>Header Files\Game Config</Filter>
     </ClInclude>
@@ -210,6 +207,9 @@
     <ClInclude Include="Observer.h">
       <Filter>Source Files\Observer</Filter>
     </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Source Files\Time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -247,9 +247,6 @@
     </ClCompile>
     <ClCompile Include="TextComponent.cpp">
       <Filter>Source Files\Components\Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Time.cpp">
-      <Filter>Source Files\Time</Filter>
     </ClCompile>
     <ClCompile Include="FPSComponent.cpp">
       <Filter>Source Files\Components\FPS</Filter>
@@ -298,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="Observer.cpp">
       <Filter>Source Files\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>Source Files\Time</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

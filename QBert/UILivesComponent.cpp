@@ -7,32 +7,21 @@ UILivesComponent::UILivesComponent(std::weak_ptr<Hidden::GameObject> pParent,siz
 
 void UILivesComponent::Update()
 {
-	if (m_pLivesObserver->GetIsNotified())
+	if (m_pLivesObserver->IsNotified())
 	{
-		HealthComponent::Event healthEvent = m_pLivesObserver->m_Event;
-		if (healthEvent == HealthComponent::Event::lifeLost)
+		if (m_NrLives > 0)
 		{
-			if (m_NrLives != 0)
-			{
-				m_NrLives = m_pLivesObserver->m_Health;
-				m_TextComponent.lock()->SetText("NrLives: " + std::to_string(m_NrLives));
-			}
+			m_NrLives = m_pLivesObserver->GetHealth();
+			m_TextComponent.lock()->SetText("NrLives: " + std::to_string(m_NrLives));
 		}
-		else if (healthEvent == HealthComponent::Event::death)
+
+		if (m_NrLives == 0)
 		{
 			m_TextComponent.lock()->SetText("NrLives: " + std::to_string(0));
 			std::cout << "QBert Died!\n";
 		}
-
+		
 		m_pLivesObserver->SetIsNotified(false);
-	}
-
-
-	if (m_NeedsUpdate == true)
-	{
-		std::cout << "UILivesNeedsUpdating\n";
-
-		m_NeedsUpdate = false;
 	}
 }
 

@@ -5,12 +5,14 @@
 #include "Component.h"
 #include "TextComponent.h"
 #include "TileComponent.h"
+#include "QBertObserver.h"
 
 using namespace Hidden;
 
-class UIScoreComponent : public Hidden::Component
+class UIScoreComponent final : public Hidden::Component
 {
-	UIScoreComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialHealth, const std::weak_ptr<TextComponent> textComponent);
+public:
+	UIScoreComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialScore, const std::weak_ptr<TextComponent> textComponent);
 	~UIScoreComponent() = default;
 
 	UIScoreComponent(const UIScoreComponent & other) = delete;
@@ -20,9 +22,15 @@ class UIScoreComponent : public Hidden::Component
 
 	void Update() override;
 
+	void SetQBertObserver(std::shared_ptr<QBertObserver> qBertObserver);
+
+
 private:
 	unsigned int m_Score{};
 	bool m_NeedsUpdate{ false };
 	std::weak_ptr<TextComponent> m_TextComponent;
+
+	std::shared_ptr<QBertObserver> m_pQbertObserver;
+
 };
 

@@ -19,27 +19,13 @@ namespace Hidden
 	
 			virtual void onNotify(const T& data) = 0;
 
-			bool GetIsNotified();
-			void SetIsNotified(bool isNotified);
+			virtual bool IsNotified() = 0;
+			virtual void SetIsNotified(bool isNotified) = 0;
 
 		protected:
-			bool m_IsNotified;
 	
 		private:
 	};
-
-
-	template <class T>
-	bool Observer<T>::GetIsNotified()
-	{
-		return m_IsNotified;
-	}
-
-	template <class T>
-	void Observer<T>::SetIsNotified(bool isNotified)
-	{
-		m_IsNotified = isNotified;
-	}
 }
 
 

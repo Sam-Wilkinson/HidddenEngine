@@ -3,8 +3,9 @@
 #include "Subject.h"
 
 #include "GameObject.h"
+#include "QBertComponent.h"
 
-class QBertObserver : public Hidden::Observer<Hidden::GameObject>
+class QBertObserver : public Hidden::Observer<QBertComponent>
 {
 public:
 	QBertObserver() = default;
@@ -16,19 +17,21 @@ public:
 	QBertObserver& operator=(const QBertObserver & other) = default; // copy assignment
 	QBertObserver& operator=(QBertObserver && other) noexcept = default; // move assignment
 
-	template <class T>
-	virtual void onNotify(const T & data);
 
-	virtual void OnLifeLost() = 0;
-	virtual void OnDeath() = 0;
+	virtual void onNotify(const QBertComponent & data) override;
+
+	virtual bool IsNotified() override;
+	virtual void SetIsNotified(bool isNotified) override;
+
+	QBertComponent::Event GetEvent();
+	size_t GetScore();
 
 protected:
 
 private:
+	bool m_IsNotified;
+	QBertComponent::Event m_Event;
+	size_t m_Score;
+
 };
 
-template<class T>
-inline void QBertObserver::onNotify(const T& data)
-{
-
-}

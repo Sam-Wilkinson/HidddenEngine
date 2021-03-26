@@ -170,6 +170,8 @@
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="LivesObserver.cpp" />
     <ClCompile Include="LoseLifeCommand.cpp" />
+    <ClCompile Include="QBertComponent.cpp" />
+    <ClCompile Include="QBertObserver.cpp" />
     <ClCompile Include="TileComponent.cpp" />
     <ClCompile Include="UILivesComponent.cpp" />
     <ClCompile Include="QBertApp.cpp" />
@@ -181,6 +183,8 @@
     <ClInclude Include="LivesObserver.h" />
     <ClInclude Include="LoseLifeCommand.h" />
     <ClInclude Include="QBertApp.h" />
+    <ClInclude Include="QBertComponent.h" />
+    <ClInclude Include="QBertObserver.h" />
     <ClInclude Include="TileComponent.h" />
     <ClInclude Include="UILivesComponent.h" />
     <ClInclude Include="UIScoreComponent.h" />

@@ -10,7 +10,7 @@
 //#include "TextObject.h"
 #include "GameObject.h"
 #include "Scene.h"
-#include "Time.h"
+#include "GameTime.h"
 #include "RenderComponent.h"
 #include "TextComponent.h"
 #include "FPSComponent.h"
@@ -77,7 +77,7 @@ void Hidden::Application::Run()
 	{
 		const auto currentTime = high_resolution_clock::now();
 		// deltaTime = how much time has passed since the last frame
-		Time::GetInstance().SetTime(duration<float>(currentTime - lastTime).count());
+		GameTime::GetInstance().SetTime(duration<float>(currentTime - lastTime).count());
 
 		doContinue = input.ProcessInput();
 		sceneManager.Update();

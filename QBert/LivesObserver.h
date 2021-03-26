@@ -4,7 +4,7 @@
 
 using namespace Hidden;
 
-class LivesObserver : public Hidden::Observer<HealthComponent>
+class LivesObserver final : public Hidden::Observer<HealthComponent>
 {
 public:
 	LivesObserver() = default;
@@ -16,13 +16,20 @@ public:
 	LivesObserver& operator=(const LivesObserver & other) = default; // copy assignment
 	LivesObserver& operator=(LivesObserver && other) noexcept = default; // move assignment
 
-	virtual void onNotify(const HealthComponent & data);
+	virtual void onNotify(const HealthComponent & data) override;
 
-	HealthComponent::Event m_Event{};
-	size_t m_Health{};
+	virtual bool IsNotified() override;
+	virtual void SetIsNotified(bool isNotified) override;
+
+	HealthComponent::Event GetEvent();
+	size_t GetHealth();
+
 protected:
 
 private:
+	bool m_IsNotified;
+	size_t m_Health{};
+	HealthComponent::Event m_Event{};
 
 };
 

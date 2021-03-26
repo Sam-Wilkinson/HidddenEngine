@@ -13,13 +13,19 @@
 #include "FPSComponent.h"
 #include "HealthComponent.h"
 #include "UILivesComponent.h"
+#include "TileComponent.h"
+#include "QBertComponent.h"
+#include "UIScoreComponent.h"
 
 // Commands
 #include "LoseLifeCommand.h"
 #include "DeathCommand.h"
+#include "SuccessCommand.h"
+#include "IncreaseScoreCommand.h"
 
 // Obserevers
 #include "LivesObserver.h"
+#include "QBertObserver.h"
 
 Hidden::Application* Hidden::CreateApplication()
 {
@@ -99,12 +105,22 @@ void QBert::LoadGame() const
 	size_t initialHealth{ 10 };
 	go = std::make_shared<Hidden::GameObject>();
 	auto QBertHealth = std::make_shared<HealthComponent>(go, initialHealth);
+	auto QBert= std::make_shared<QBertComponent>(go);
 	go->AddComponent(QBertHealth);
+	go->AddComponent(QBert);
 	scene.Add(go);
 	
-	// add input here
+	// add input for health
 	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::ButtonA, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<LoseLifeCommand>());
 	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::ButtonB, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<DeathCommand>());
+	
+	// Add input for score
+	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::DpadLeft, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<SuccessCommand>());
+	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::DpadRight, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<SuccessCommand>());
+	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::DpadUp, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<SuccessCommand>());
+	InputManager::GetInstance().CreateCommand({0,Hidden::XBox360Controller::ControllerButton::DpadDown, XBox360Controller::ButtonEventType::OnPressed}, std::make_shared<SuccessCommand>());
+
+
 
 	// UI 
 	// **
@@ -124,6 +140,25 @@ void QBert::LoadGame() const
 	go->SetPosition(10, 150);
 	scene.Add(go);
 	scene.AddRenderable(UIRenderComponent);
+
+
+	go = std::make_shared<Hidden::GameObject>();
+	UIRenderComponent = std::make_shared<RenderComponent>(go);
+	auto UIScoreText = std::make_shared<TextComponent>(go, "Score: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
+	auto UIScore = std::make_shared<UIScoreComponent>(go, initialHealth, UIHealthText);
+
+	auto qbertObserver = std::make_shared<QBertObserver>();
+
+	QBert->GetSubject().lock()->AddObserver(qbertObserver);
+	UIScore->SetQBertObserver(qbertObserver);
+
+	go->AddComponent(UIScore);
+	go->AddComponent(UIScoreText);
+	go->AddComponent(UIRenderComponent);
+	go->SetPosition(10, 200);
+	scene.Add(go);
+	scene.AddRenderable(UIRenderComponent);
+
 
 }
 
