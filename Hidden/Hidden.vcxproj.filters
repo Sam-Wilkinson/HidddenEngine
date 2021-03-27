@@ -112,6 +112,9 @@
     <Filter Include="Source Files\ServiceLocator">
       <UniqueIdentifier>{5946ff11-671d-471f-ac11-b99aab15758b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sound\SimpleSDL2Sound">
+      <UniqueIdentifier>{bb4ea056-3396-4a86-b2c9-e7aecc96713e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -222,6 +225,9 @@
     <ClInclude Include="ServiceLocator.h">
       <Filter>Source Files\ServiceLocator</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleSDL2SoundSystem.h">
+      <Filter>Source Files\Sound\SimpleSDL2Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -316,6 +322,9 @@
     </ClCompile>
     <ClCompile Include="ServiceLocator.cpp">
       <Filter>Source Files\ServiceLocator</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleSDL2SoundSystem.cpp">
+      <Filter>Source Files\Sound\SimpleSDL2Sound</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
