@@ -8,7 +8,7 @@
 class QBertObserver : public Hidden::Observer<QBertComponent>
 {
 public:
-	QBertObserver() = default;
+	QBertObserver();
 	virtual ~QBertObserver() = default;
 
 

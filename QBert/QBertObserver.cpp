@@ -1,5 +1,10 @@
 #include "QBertObserver.h"
 
+QBertObserver::QBertObserver()
+    :Observer<QBertComponent>(), m_IsNotified{false}, m_Score{0},m_Event{QBertComponent::Event::endStage}
+{
+}
+
 void QBertObserver::onNotify(const QBertComponent& data)
 {
     switch (data.GetCurrentEvent())
