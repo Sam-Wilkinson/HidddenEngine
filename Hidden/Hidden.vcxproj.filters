@@ -106,6 +106,12 @@
     <Filter Include="Source Files\Subject">
       <UniqueIdentifier>{492b6c75-ed7d-4575-b1d0-4513f8daddd1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sound">
+      <UniqueIdentifier>{39f80df8-16b8-4763-8a7c-8948c96cfeb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ServiceLocator">
+      <UniqueIdentifier>{5946ff11-671d-471f-ac11-b99aab15758b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -210,6 +216,12 @@
     <ClInclude Include="GameTime.h">
       <Filter>Source Files\Time</Filter>
     </ClInclude>
+    <ClInclude Include="SoundSystem.h">
+      <Filter>Source Files\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceLocator.h">
+      <Filter>Source Files\ServiceLocator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -298,6 +310,12 @@
     </ClCompile>
     <ClCompile Include="GameTime.cpp">
       <Filter>Source Files\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSystem.cpp">
+      <Filter>Source Files\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceLocator.cpp">
+      <Filter>Source Files\ServiceLocator</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
