@@ -112,8 +112,17 @@
     <Filter Include="Source Files\ServiceLocator">
       <UniqueIdentifier>{5946ff11-671d-471f-ac11-b99aab15758b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Sound\SimpleSDL2Sound">
+    <Filter Include="Source Files\Sound\SimpleSDL2SoundSystem">
       <UniqueIdentifier>{bb4ea056-3396-4a86-b2c9-e7aecc96713e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\NullSoundSystem">
+      <UniqueIdentifier>{f16c7fb0-e2f9-4396-aed7-dad9991bec61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\LoggingSoundSystem">
+      <UniqueIdentifier>{418d6074-6e6a-48ee-9a7d-ad113db5fb03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logging">
+      <UniqueIdentifier>{0ca56f55-e649-4a60-bb9d-2d2b2d2df0ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -226,7 +235,16 @@
       <Filter>Source Files\ServiceLocator</Filter>
     </ClInclude>
     <ClInclude Include="SimpleSDL2SoundSystem.h">
-      <Filter>Source Files\Sound\SimpleSDL2Sound</Filter>
+      <Filter>Source Files\Sound\SimpleSDL2SoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="NullSoundSystem.h">
+      <Filter>Source Files\Sound\NullSoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="LoggingSoundSystem.h">
+      <Filter>Source Files\Sound\LoggingSoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Source Files\Logging</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -324,7 +342,16 @@
       <Filter>Source Files\ServiceLocator</Filter>
     </ClCompile>
     <ClCompile Include="SimpleSDL2SoundSystem.cpp">
-      <Filter>Source Files\Sound\SimpleSDL2Sound</Filter>
+      <Filter>Source Files\Sound\SimpleSDL2SoundSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="NullSoundSystem.cpp">
+      <Filter>Source Files\Sound\NullSoundSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="LoggingSoundSystem.cpp">
+      <Filter>Source Files\Sound\LoggingSoundSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files\Logging</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,24 +1,44 @@
 #pragma once
-class SoundSystem
+
+namespace Hidden
 {
-public:
-	SoundSystem() = default;
-	virtual ~SoundSystem() = default;
+	class SoundSystem
+	{
+	public:
+		SoundSystem() = default;
+		virtual ~SoundSystem() = default;
 
 
-	SoundSystem(const SoundSystem& other) = default; // copy constructor
-	SoundSystem(SoundSystem && other) noexcept = default; // move constructor
-	SoundSystem& operator=(const SoundSystem & other) = default; // copy assignment
-	SoundSystem& operator=(SoundSystem && other) noexcept = default; // move assignment
+		SoundSystem(const SoundSystem& other) = default; // copy constructor
+		SoundSystem(SoundSystem&& other) noexcept = default; // move constructor
+		SoundSystem& operator=(const SoundSystem& other) = default; // copy assignment
+		SoundSystem& operator=(SoundSystem&& other) noexcept = default; // move assignment
 
-	virtual void play(const unsigned int id, const float volume) = 0;
-	virtual void pause(const unsigned int id) = 0;
-	virtual void stop(const unsigned int id) = 0;
+		virtual void PlaySound(const std::string& filePath, const float volume) = 0;
+		virtual void PlayMusic(const std::string& filePath, const float volume) = 0;
 
-protected:
+		//virtual void PlaySound(const unsigned int soundID, const float volume) = 0;
+		//virtual void PlayMusc(const unsigned int musicID, const float volume) = 0;
 
-private:
+		virtual void PauseMusic(const unsigned int id) = 0;
+		virtual void UnPauseMusic(const unsigned int id) = 0;
+
+		virtual void StopMusic(const unsigned int id) = 0;
+
+		virtual void MuteSounds() = 0;
+		virtual void UnMuteSounds() = 0;
+
+		virtual void ProcessSounds() = 0;
 
 
-};
+
+	protected:
+
+	private:
+
+
+	};
+}
+
+
 
