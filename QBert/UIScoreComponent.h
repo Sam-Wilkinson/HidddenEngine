@@ -26,7 +26,7 @@ public:
 
 
 private:
-	unsigned int m_Score{};
+	size_t m_Score{};
 	bool m_NeedsUpdate{ false };
 	std::weak_ptr<TextComponent> m_TextComponent;
 
