@@ -1,15 +1,29 @@
 #pragma once
 #include "SoundSystem.h"
+#include "NullSoundSystem.h"
+#include "Logger.h"
 
-class ServiceLocator final
+namespace Hidden
 {
-public:
-	static SoundSystem& GetSoundSystem() { return *m_SoundSystemInstance; };
-	static void RegisterSoundSystem(std::unique_ptr<SoundSystem> soundSystem) { m_SoundSystemInstance = std::move(soundSystem); };
+	class ServiceLocator final
+	{
+	public:
+		static SoundSystem& GetSoundSystem() { return *m_SoundSystemInstance; };
+		static void RegisterSoundSystem(std::shared_ptr<SoundSystem> soundSystem)
+		{
+			// If passed soundSystem exists, make it the service locators sound system, else make it the default(Null) soundSystem
+			m_SoundSystemInstance = soundSystem ? soundSystem : m_DefaultSoundSystem;
+		};
 
-private:
-	static std::unique_ptr<SoundSystem> m_SoundSystemInstance;
+	private:
+		static std::shared_ptr<SoundSystem> m_SoundSystemInstance;
+		static std::shared_ptr<NullSoundSystem> m_DefaultSoundSystem;
+		static std::unique_ptr<Logger> m_LoggingInstance;
+	};
 
-};
+	std::shared_ptr<NullSoundSystem> ServiceLocator::m_DefaultSoundSystem{ std::make_shared<NullSoundSystem>() };
+	std::shared_ptr<SoundSystem> ServiceLocator::m_SoundSystemInstance{ ServiceLocator::m_DefaultSoundSystem };
+	std::unique_ptr<Logger> ServiceLocator::m_LoggingInstance{ std::make_unique<Logger>() };
+}
 
-std::unique_ptr<SoundSystem> ServiceLocator::m_SoundSystemInstance{};
+
