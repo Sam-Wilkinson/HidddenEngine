@@ -1,13 +1,5 @@
 #pragma once
 #include "SoundSystem.h"
-
-#include <audio.h>
-// ignore warning 4244, conversion from int to uint8_t possible loss of data in audio.c >> line 264 and 322
-#pragma warning(push)
-#pragma warning (disable:4244)
-#include <audio.c>
-#pragma warning(pop)
-
 #include <queue>
 #include <thread>
 #include <mutex>

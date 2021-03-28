@@ -27,6 +27,11 @@
 #include "LivesObserver.h"
 #include "QBertObserver.h"
 
+#include "ServiceLocator.h"
+//Audio
+#include "SimpleSDL2SoundSystem.h"
+//Logging
+
 Hidden::Application* Hidden::CreateApplication()
 {
 	return new QBert{};
@@ -227,6 +232,17 @@ void QBert::LoadGame() const
 	scene.Add(go);
 	scene.AddRenderable(UIRenderComponent);
 
+
+	//Sounds & Music
+
+	std::shared_ptr<SoundSystem> ss = std::make_shared<SimpleSDL2SoundSystem>();
+	ServiceLocator::RegisterSoundSystem(ss);
+
+	
+	ServiceLocator::GetSoundSystem().PlayMusic("../3rdParty/Simple-SDL2-Audio-master/music/highlands.wav", 1.0f);
+	
+	const std::string& filePath{"./Log.txt"};
+	ServiceLocator::GetLoggerSystem().StartLogger(filePath);
 }
 
 void QBert::Cleanup()

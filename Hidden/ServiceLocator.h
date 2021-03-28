@@ -15,6 +15,8 @@ namespace Hidden
 			m_SoundSystemInstance = soundSystem ? soundSystem : m_DefaultSoundSystem;
 		};
 
+		static Logger& GetLoggerSystem() { return *m_LoggingInstance; };
+
 	private:
 		static std::shared_ptr<SoundSystem> m_SoundSystemInstance;
 		static std::shared_ptr<NullSoundSystem> m_DefaultSoundSystem;

@@ -16,7 +16,7 @@ namespace Hidden
         ErrorCommand& operator=(const ErrorCommand& other) = default; // copy assignment
         ErrorCommand& operator=(ErrorCommand&& other) noexcept = default; // move assignment
         // Inherited via Command
-        virtual int execute(std::shared_ptr<Hidden::GameObject> pGameObject) override { std::cout << "Error, controller not found!" << std::endl; return -1; };
+        virtual int execute(std::shared_ptr<Hidden::GameObject> pGameObject) override { /*std::cout << "Error, controller not found!" << std::endl;*/ return -1; };
 
     private:
     };
