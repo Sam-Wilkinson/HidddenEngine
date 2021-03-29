@@ -26,6 +26,14 @@ Hidden::SimpleSDL2SoundSystem::SimpleSDL2SoundSystem()
 Hidden::SimpleSDL2SoundSystem::~SimpleSDL2SoundSystem()
 {
 	//TODO Make sure queue is empty before notify, if not, clear it and then notify
+	m_Mutex.lock();
+
+	while (!m_SoundQueue.empty())
+	{
+		m_SoundQueue.pop();
+	}
+
+	m_Mutex.unlock();
 
 	m_WorkAvailable.notify_one();
 

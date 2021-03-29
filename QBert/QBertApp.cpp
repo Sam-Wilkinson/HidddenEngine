@@ -30,7 +30,9 @@
 #include "ServiceLocator.h"
 //Audio
 #include "SimpleSDL2SoundSystem.h"
+#include "LoggingSoundSystem.h"
 //Logging
+#include "Logger.h"
 
 Hidden::Application* Hidden::CreateApplication()
 {
@@ -235,14 +237,14 @@ void QBert::LoadGame() const
 
 	//Sounds & Music
 
-	std::shared_ptr<SoundSystem> ss = std::make_shared<SimpleSDL2SoundSystem>();
+	std::shared_ptr<SoundSystem> ss = std::make_shared<LoggingSoundSystem>(std::make_unique<SimpleSDL2SoundSystem>());
+	//std::shared_ptr<SoundSystem> ss = std::make_shared<SimpleSDL2SoundSystem>();
 	ServiceLocator::RegisterSoundSystem(ss);
 
-	
-	ServiceLocator::GetSoundSystem().PlayMusic("../3rdParty/Simple-SDL2-Audio-master/music/highlands.wav", 1.0f);
-	
 	const std::string& filePath{"./Log.txt"};
-	ServiceLocator::GetLoggerSystem().StartLogger(filePath);
+	ServiceLocator::GetLoggerSystem().StartFileLogging(filePath);
+
+	ServiceLocator::GetSoundSystem().PlayMusic("../3rdParty/Simple-SDL2-Audio-master/music/highlands.wav", 1.0f);
 }
 
 void QBert::Cleanup()

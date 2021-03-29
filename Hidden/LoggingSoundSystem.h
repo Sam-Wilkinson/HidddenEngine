@@ -6,7 +6,7 @@ namespace Hidden
 	class LoggingSoundSystem : public SoundSystem
 	{
 	public:
-		LoggingSoundSystem() = default;
+		LoggingSoundSystem(std::unique_ptr<SoundSystem> ss);
 		virtual ~LoggingSoundSystem() = default;
 
 
@@ -32,7 +32,6 @@ namespace Hidden
 		virtual void ProcessSounds() override;
 
 	private:
-
 		std::unique_ptr<SoundSystem> m_SoundSystem;
 
 	};
