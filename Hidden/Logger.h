@@ -21,7 +21,8 @@ namespace Hidden
 		Logger() = default;
 		virtual ~Logger();
 
-		bool StartLogger(const std::string& filePath);
+		bool StartFileLogging(const std::string& filePath);
+		void StopFileLogging();
 
 		Logger(const Logger & other) = default; // copy constructor
 		Logger(Logger && other) noexcept = default; // move constructor
@@ -41,6 +42,8 @@ namespace Hidden
 		std::string m_Levels[5] = { "Info", "Debug", "Warning", "Error", "Fatal" };
 		std::mutex m_Mutex;
 		std::ofstream m_LogFile;
+
+		bool m_IsLogInFile{};
 
 	};
 }

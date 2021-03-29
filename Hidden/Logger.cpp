@@ -9,7 +9,7 @@ Hidden::Logger::~Logger()
 
 
 // Not thread safe
-bool Hidden::Logger::StartLogger(const std::string& filePath)
+bool Hidden::Logger::StartFileLogging(const std::string& filePath)
 {
 	m_LogFile.open(filePath);
 
@@ -19,15 +19,34 @@ bool Hidden::Logger::StartLogger(const std::string& filePath)
 		return false;
 	}
 
+	m_IsLogInFile = true;
 	return true;
 }
 
 void Hidden::Logger::Log(Level l, const std::string& msg)
 {
-	std::lock_guard<std::mutex> lock(m_Mutex);
-	if (m_LogFile.is_open())
+
+	if (m_IsLogInFile)
 	{
-		m_LogFile << m_Levels[static_cast<int>(l)] + " >> "  <<  msg  << std::endl;
+		std::lock_guard<std::mutex> lock(m_Mutex);
+		if (m_LogFile.is_open())
+		{
+			m_LogFile << m_Levels[static_cast<int>(l)] << " >> " << msg << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << m_Levels[static_cast<int>(l)] << " >> " << msg << std::endl;
+	}
+
+}
+
+void Hidden::Logger::StopFileLogging()
+{
+	if (m_IsLogInFile)
+	{
+		m_LogFile.close();
+		m_IsLogInFile = false; 
 	}
 }
 
