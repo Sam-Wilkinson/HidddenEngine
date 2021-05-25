@@ -1,4 +1,5 @@
 #pragma once
+
 namespace Hidden
 {
 	class SceneObject
@@ -6,7 +7,6 @@ namespace Hidden
 	public:
 		virtual void Update() = 0;
 		
-
 		SceneObject() = default;
 		virtual ~SceneObject() = default;
 		SceneObject(const SceneObject& other) = delete;

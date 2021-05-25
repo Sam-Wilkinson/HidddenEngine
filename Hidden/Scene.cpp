@@ -1,10 +1,10 @@
 #include "HiddenPCH.h"
 #include "Scene.h"
 #include "GameObject.h"
+#include "RenderComponent.h"
+
 
 using namespace Hidden;
-
-unsigned int Scene::m_IdCounter = 0;
 
 Scene::Scene(const std::string& name) : m_Name(name) {}
 
@@ -41,19 +41,33 @@ void Hidden::Scene::RemoveRenderable(const std::weak_ptr<RenderComponent>& rende
 	m_Renderables.erase(m_Renderables.begin() + idx);
 }
 
-void Scene::Update()
+const std::string& Hidden::Scene::GetName()
 {
-	for(auto& object : m_Objects)
+	return m_Name;
+}
+
+void Hidden::Scene::RootInitialize()
+{
+	Initialize();
+}
+
+void Hidden::Scene::RootUpdate()
+{
+	Update();
+
+	for (auto go : m_Objects)
 	{
-		object->Update();
+		go->Update();
 	}
 }
 
-void Scene::Render() const
+void Hidden::Scene::RootRender() const
 {
-	for (const auto& renderable : m_Renderables)
+	Render();
+
+	for (auto render : m_Renderables)
 	{
-		renderable.lock()->Render();
+		render.lock()->Render();
 	}
 }
 

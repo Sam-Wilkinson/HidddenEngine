@@ -168,10 +168,12 @@
   <ItemGroup>
     <ClCompile Include="DeathCommand.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="LivesObserver.cpp" />
     <ClCompile Include="LoseLifeCommand.cpp" />
     <ClCompile Include="QBertComponent.cpp" />
     <ClCompile Include="QBertObserver.cpp" />
+    <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="TileComponent.cpp" />
     <ClCompile Include="UILivesComponent.cpp" />
     <ClCompile Include="QBertApp.cpp" />
@@ -180,11 +182,13 @@
   <ItemGroup>
     <ClInclude Include="DeathCommand.h" />
     <ClInclude Include="HealthComponent.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="LivesObserver.h" />
     <ClInclude Include="LoseLifeCommand.h" />
     <ClInclude Include="QBertApp.h" />
     <ClInclude Include="QBertComponent.h" />
     <ClInclude Include="QBertObserver.h" />
+    <ClInclude Include="Scene1.h" />
     <ClInclude Include="TileComponent.h" />
     <ClInclude Include="UILivesComponent.h" />
     <ClInclude Include="UIScoreComponent.h" />
