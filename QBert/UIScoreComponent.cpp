@@ -1,4 +1,4 @@
-#include "HiddenPCH.h"
+#include "QBertPCH.h"
 #include "UIScoreComponent.h"
 
 UIScoreComponent::UIScoreComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialScore, const std::weak_ptr<TextComponent> textComponent)

@@ -1,4 +1,4 @@
-#include "HiddenPCH.h"
+#include "QBertPCH.h"
 #include "UILivesComponent.h"
 
 UILivesComponent::UILivesComponent(std::weak_ptr<Hidden::GameObject> pParent,size_t initialHealth, const std::weak_ptr<TextComponent> textComponent)

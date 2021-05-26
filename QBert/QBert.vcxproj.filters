@@ -66,6 +66,12 @@
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{3ebe29b1-cf85-4b2c-84e4-3dc6ace5df94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scenes\Scene1">
+      <UniqueIdentifier>{c4b40319-cbac-4eb2-9152-215868b1acaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\QBertPCH">
+      <UniqueIdentifier>{665967bd-dc1d-472b-b904-c30ed51c8095}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HealthComponent.cpp">
@@ -102,7 +108,10 @@
       <Filter>Source Files\Levels</Filter>
     </ClCompile>
     <ClCompile Include="Scene1.cpp">
-      <Filter>Source Files\Scenes</Filter>
+      <Filter>Source Files\Scenes\Scene1</Filter>
+    </ClCompile>
+    <ClCompile Include="QBertPCH.cpp">
+      <Filter>Source Files\QBertPCH</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +149,10 @@
       <Filter>Source Files\Levels</Filter>
     </ClInclude>
     <ClInclude Include="Scene1.h">
-      <Filter>Source Files\Scenes</Filter>
+      <Filter>Source Files\Scenes\Scene1</Filter>
+    </ClInclude>
+    <ClInclude Include="QBertPCH.h">
+      <Filter>Source Files\QBertPCH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,3 +1,4 @@
+#include "QBertPCH.h"
 #include "LivesObserver.h"
 
 void LivesObserver::onNotify(const HealthComponent& data)

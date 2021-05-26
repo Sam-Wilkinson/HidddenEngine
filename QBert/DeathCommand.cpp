@@ -1,3 +1,4 @@
+#include "QBertPCH.h"
 #include "DeathCommand.h"
 #include "GameObject.h"
 

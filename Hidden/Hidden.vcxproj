@@ -200,6 +200,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
     <ClInclude Include="..\3rdParty\imgui-1.81\imstb_truetype.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="DefaultScene.h" />
     <ClInclude Include="EmptyCommand.h" />
     <ClInclude Include="ErrorCommand.h" />
     <ClInclude Include="Font.h" />
@@ -303,6 +304,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
     </ClCompile>
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DefaultScene.cpp" />
     <ClCompile Include="EmptyCommand.cpp" />
     <ClCompile Include="ErrorCommand.cpp" />
     <ClCompile Include="Font.cpp" />

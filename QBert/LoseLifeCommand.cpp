@@ -1,3 +1,5 @@
+
+#include "QBertPCH.h"
 #include "LoseLifeCommand.h"
 #include "HealthComponent.h"
 int LoseLifeCommand::execute(std::shared_ptr<Hidden::GameObject> pGameObject)

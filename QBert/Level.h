@@ -2,12 +2,12 @@
 class Level final
 {
 public:
-	explicit Level();
-	~Level();
+	explicit Level() = default;
+	~Level() = default;
 
-	void Initialize();
-	void Update();
-	void Render();
+	void Initialize() {};
+	void Update() {};
+	void Render() {};
 
 protected:
 

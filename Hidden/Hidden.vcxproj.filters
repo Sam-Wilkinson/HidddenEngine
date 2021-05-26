@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Minigin">
-      <UniqueIdentifier>{0415d5ac-e2b5-40ac-adf9-a00aecae22d9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObject">
       <UniqueIdentifier>{175deec9-6345-434b-8931-aa7f8a5e0063}</UniqueIdentifier>
     </Filter>
@@ -45,9 +42,6 @@
     </Filter>
     <Filter Include="Source Files\Texture2D">
       <UniqueIdentifier>{27b5bd3d-4054-4f2a-b29d-845eedbba41f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Minigin\PCH">
-      <UniqueIdentifier>{78e00c78-e5f2-488c-8b88-0b181146df6a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Transform">
       <UniqueIdentifier>{6a721529-6a19-4bd6-a4a2-3b114aafe835}</UniqueIdentifier>
@@ -123,6 +117,15 @@
     </Filter>
     <Filter Include="Source Files\Logging">
       <UniqueIdentifier>{0ca56f55-e649-4a60-bb9d-2d2b2d2df0ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hidden">
+      <UniqueIdentifier>{0415d5ac-e2b5-40ac-adf9-a00aecae22d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hidden\PCH">
+      <UniqueIdentifier>{78e00c78-e5f2-488c-8b88-0b181146df6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hidden\Scene">
+      <UniqueIdentifier>{679c1185-125a-443d-bc1c-a1de7eaa4b5a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -214,10 +217,10 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Application.h">
-      <Filter>Source Files\Minigin</Filter>
+      <Filter>Source Files\Hidden</Filter>
     </ClInclude>
     <ClInclude Include="HiddenPCH.h">
-      <Filter>Source Files\Minigin\PCH</Filter>
+      <Filter>Source Files\Hidden\PCH</Filter>
     </ClInclude>
     <ClInclude Include="Subject.h">
       <Filter>Source Files\Subject</Filter>
@@ -245,6 +248,9 @@
     </ClInclude>
     <ClInclude Include="Logger.h">
       <Filter>Source Files\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultScene.h">
+      <Filter>Source Files\Hidden\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -321,10 +327,10 @@
       <Filter>Source Files\Commands\BaseCommand</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
-      <Filter>Source Files\Minigin</Filter>
+      <Filter>Source Files\Hidden</Filter>
     </ClCompile>
     <ClCompile Include="HiddenPCH.cpp">
-      <Filter>Source Files\Minigin\PCH</Filter>
+      <Filter>Source Files\Hidden\PCH</Filter>
     </ClCompile>
     <ClCompile Include="Subject.cpp">
       <Filter>Source Files\Subject</Filter>
@@ -352,6 +358,9 @@
     </ClCompile>
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultScene.cpp">
+      <Filter>Source Files\Hidden\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

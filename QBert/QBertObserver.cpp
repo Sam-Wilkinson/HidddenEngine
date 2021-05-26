@@ -1,3 +1,4 @@
+#include "QBertPCH.h"
 #include "QBertObserver.h"
 
 QBertObserver::QBertObserver()

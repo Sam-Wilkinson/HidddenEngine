@@ -1,8 +1,8 @@
 #pragma once
+#include "QBertPCH.h"
 #include "QbertApp.h"
 #include "Main.h"
 #include "SceneManager.h"
-
 #include "Scene1.h"
 
 Hidden::Application* Hidden::CreateApplication()
