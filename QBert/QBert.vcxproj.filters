@@ -60,9 +60,6 @@
     <Filter Include="Source Files\Commands\IncreaseScore">
       <UniqueIdentifier>{b6f1b1d4-91fd-426d-a0d2-40930473e140}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Levels">
-      <UniqueIdentifier>{1f8c7f11-449e-4bfd-be6b-65f5624412ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{3ebe29b1-cf85-4b2c-84e4-3dc6ace5df94}</UniqueIdentifier>
     </Filter>
@@ -71,6 +68,9 @@
     </Filter>
     <Filter Include="Source Files\QBertPCH">
       <UniqueIdentifier>{665967bd-dc1d-472b-b904-c30ed51c8095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\TestScene">
+      <UniqueIdentifier>{79a0e4ad-e299-45d3-ae16-a611c9490edb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -104,14 +104,14 @@
     <ClCompile Include="QBertObserver.cpp">
       <Filter>Source Files\Observers\QBertObserver</Filter>
     </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Source Files\Levels</Filter>
-    </ClCompile>
     <ClCompile Include="Scene1.cpp">
       <Filter>Source Files\Scenes\Scene1</Filter>
     </ClCompile>
     <ClCompile Include="QBertPCH.cpp">
       <Filter>Source Files\QBertPCH</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>Source Files\Scenes\TestScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,14 +145,14 @@
     <ClInclude Include="QBertObserver.h">
       <Filter>Source Files\Observers\QBertObserver</Filter>
     </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Source Files\Levels</Filter>
-    </ClInclude>
     <ClInclude Include="Scene1.h">
       <Filter>Source Files\Scenes\Scene1</Filter>
     </ClInclude>
     <ClInclude Include="QBertPCH.h">
       <Filter>Source Files\QBertPCH</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>Source Files\Scenes\TestScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

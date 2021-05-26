@@ -4,6 +4,7 @@
 #include "Main.h"
 #include "SceneManager.h"
 #include "Scene1.h"
+#include "TestScene.h"
 
 Hidden::Application* Hidden::CreateApplication()
 {
@@ -14,7 +15,7 @@ using namespace Hidden;
 
 void QBert::LoadGame() const
 {
-	auto scene = std::make_shared<Scene1>();
+	auto scene = std::make_shared<TestScene>();
 
 	SceneManager::GetInstance().AddScene(scene);
 

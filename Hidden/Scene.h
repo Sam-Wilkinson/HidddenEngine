@@ -29,8 +29,8 @@ namespace Hidden
 	protected:
 		void Add(const std::shared_ptr<SceneObject>& object);
 		void AddRenderable(const std::weak_ptr<RenderComponent>& renderComponent);
-		void Remove(const std::shared_ptr<SceneObject>& object);
-		void RemoveRenderable(const std::weak_ptr<RenderComponent>& renderComponent);
+		void Remove(const SceneObject& object);
+		void RemoveRenderable(const RenderComponent& renderComponent);
 
 	private: 
 		std::string m_Name;

@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "GameObject.h"
 #include "RenderComponent.h"
+#include "ServiceLocator.h"
 
 
 using namespace Hidden;
@@ -20,25 +21,35 @@ void Hidden::Scene::AddRenderable(const std::weak_ptr<RenderComponent>& renderCo
 	m_Renderables.push_back(renderComponent);
 }
 
-void Hidden::Scene::Remove(const std::shared_ptr<SceneObject>& object)
+void Hidden::Scene::Remove(const SceneObject& object)
 {
-	m_Objects.erase(std::remove(m_Objects.begin(), m_Objects.end(), object));
+
+	auto it = std::find_if(m_Objects.begin(), m_Objects.end(), [&object](std::shared_ptr<SceneObject> obj)
+		{
+			return &object == obj.get();
+		});
+
+	if(it == m_Objects.end())
+	{
+		ServiceLocator::GetLoggerSystem().LogWarning("Scene::Remove(const SceneObject& object) - SceneObject was not found inside Scene!");
+		return;
+	}
+	m_Objects.erase(it);
 }
 
-void Hidden::Scene::RemoveRenderable(const std::weak_ptr<RenderComponent>& renderComponent)
+void Hidden::Scene::RemoveRenderable(const RenderComponent& renderComponent)
 {
-	int idx{};
-
-	for (unsigned int i{}; i < m_Renderables.size() ; m_Renderables)
-	{
-		if (m_Renderables[i].lock() == renderComponent.lock())
+	auto it = std::find_if(m_Renderables.begin(), m_Renderables.end(), [&renderComponent](std::weak_ptr<RenderComponent> obj)
 		{
-			idx = i;
-			break;
-		}
+			return &renderComponent == obj.lock().get();
+		});
+
+	if (it == m_Renderables.end())
+	{
+		ServiceLocator::GetLoggerSystem().LogWarning("Scene::RemoveRenderable(const RenderComponent& renderComponent) - renderComponent was not found inside Scene renderables!");
+		return;
 	}
-	
-	m_Renderables.erase(m_Renderables.begin() + idx);
+	m_Renderables.erase(it);
 }
 
 const std::string& Hidden::Scene::GetName()
@@ -54,7 +65,6 @@ void Hidden::Scene::RootInitialize()
 void Hidden::Scene::RootUpdate()
 {
 	Update();
-
 	for (auto go : m_Objects)
 	{
 		go->Update();
@@ -64,7 +74,6 @@ void Hidden::Scene::RootUpdate()
 void Hidden::Scene::RootRender() const
 {
 	Render();
-
 	for (auto render : m_Renderables)
 	{
 		render.lock()->Render();

@@ -235,16 +235,10 @@ void Scene1::Initialize()
 
 void Scene1::Update()
 {
-	for (auto& level : m_Levels)
-	{
-		level->Update();
-	}
+
 }
 
 void Scene1::Render() const
 {
-	for (auto& level : m_Levels)
-	{
-		level->Update();
-	}
+
 }

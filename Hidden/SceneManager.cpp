@@ -26,9 +26,10 @@ void Hidden::SceneManager::AddScene(const std::shared_ptr<Scene> pScene)
 	if (it != m_Scenes.cend())
 	{
 		ServiceLocator::GetLoggerSystem().LogWarning("SceneManager::AddScene(const std::shared_ptr<Scene>()) - Scene was already found inside SceneManager!");
+		return;
 	}
 
-	pScene->Initialize();
+	pScene->RootInitialize();
 
 	m_Scenes.push_back(pScene);
 

@@ -15,8 +15,6 @@ namespace Hidden
 		void SetTexture(const std::string& filename);
 		void SetTexture(const std::shared_ptr<Texture2D>& texture);
 
-
-
 		RenderComponent(const RenderComponent& other) = delete;
 		RenderComponent(RenderComponent&& other) = delete;
 		RenderComponent& operator=(const RenderComponent& other) = delete;
