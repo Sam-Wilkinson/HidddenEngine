@@ -17,10 +17,11 @@ namespace Hidden
 		Component& operator=(Component&& other) = delete;
 
 		virtual void Update() = 0;
-		virtual void Render();
+		virtual void Render() const;
+
 		void SetParentGameObject(std::weak_ptr<GameObject> parent);
 		std::weak_ptr<GameObject> GetParentGameObject() const;
-
+		void RemoveParentGameObject(std::weak_ptr<GameObject> parent);
 	protected:
 		std::weak_ptr<GameObject> m_pParent;
 

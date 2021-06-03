@@ -20,8 +20,9 @@ namespace Hidden
 		RenderComponent& operator=(const RenderComponent& other) = delete;
 		RenderComponent& operator=(RenderComponent&& other) = delete;
 
-		void Render() const;
 		void Update() override;
+		virtual void Render() const override;
+
 
 	private:
 		std::shared_ptr<Texture2D> m_Texture;

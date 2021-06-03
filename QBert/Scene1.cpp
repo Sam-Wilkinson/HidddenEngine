@@ -36,7 +36,7 @@ void Scene1::Initialize()
 	// **********
 	auto go = std::make_shared<Hidden::GameObject>();
 	// Create RenderComponent and add Texture to it
-	auto renderComponent = std::make_shared<RenderComponent>(go);
+	auto renderComponent = std::make_shared<RenderComponent>();
 	renderComponent->SetTexture("background.jpg");
 	// Register it as renderable for the scene
 	AddRenderable(renderComponent);
@@ -50,10 +50,8 @@ void Scene1::Initialize()
 
 	go = std::make_shared<Hidden::GameObject>();
 	// Create RenderComponent and add Texture to it
-	renderComponent = std::make_shared<RenderComponent>(go);
+	renderComponent = std::make_shared<RenderComponent>();
 	renderComponent->SetTexture("logo.png");
-	// Register the gameObject with the renderComponent
-	renderComponent->SetParentGameObject(go);
 	// Register it as renderable for the scene
 	AddRenderable(renderComponent);
 	// Register the renderComponent to the GameObject
@@ -65,9 +63,9 @@ void Scene1::Initialize()
 
 	// Title
 	// *****
-	renderComponent = std::make_shared<RenderComponent>(go);
+	renderComponent = std::make_shared<RenderComponent>();
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
-	auto textComponent = std::make_shared<TextComponent>(go, "Programming 4 Assignment", font, renderComponent);
+	auto textComponent = std::make_shared<TextComponent>("Programming 4 Assignment", font, renderComponent);
 	//auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
 	go->AddComponent(textComponent);
 	go->AddComponent(renderComponent);
@@ -79,9 +77,9 @@ void Scene1::Initialize()
 	// ***
 	go = std::make_shared<Hidden::GameObject>();
 	auto fpsFont = ResourceManager::GetInstance().LoadFont("Lingua.otf", 24);
-	renderComponent = std::make_shared<RenderComponent>(go);
-	textComponent = std::make_shared<TextComponent>(go, "0", fpsFont, renderComponent);
-	auto fpsComponent = std::make_shared<FPSComponent>(go, textComponent);
+	renderComponent = std::make_shared<RenderComponent>();
+	textComponent = std::make_shared<TextComponent>("0", fpsFont, renderComponent);
+	auto fpsComponent = std::make_shared<FPSComponent>(textComponent);
 
 	go->AddComponent(fpsComponent);
 	go->AddComponent(textComponent);
@@ -96,8 +94,8 @@ void Scene1::Initialize()
 	// *****
 	size_t initialHealth{ 10 };
 	go = std::make_shared<Hidden::GameObject>();
-	auto QBertHealth = std::make_shared<HealthComponent>(go, initialHealth);
-	auto QBert = std::make_shared<QBertComponent>(go);
+	auto QBertHealth = std::make_shared<HealthComponent>(initialHealth);
+	auto QBert = std::make_shared<QBertComponent>();
 	go->AddComponent(QBertHealth);
 	go->AddComponent(QBert);
 	Add(go);
@@ -116,8 +114,8 @@ void Scene1::Initialize()
 
 	//Qbert 2
 	go = std::make_shared<Hidden::GameObject>();
-	auto QBertHealth2 = std::make_shared<HealthComponent>(go, initialHealth);
-	auto QBert2 = std::make_shared<QBertComponent>(go);
+	auto QBertHealth2 = std::make_shared<HealthComponent>( initialHealth);
+	auto QBert2 = std::make_shared<QBertComponent>();
 	go->AddComponent(QBertHealth2);
 	go->AddComponent(QBert2);
 	Add(go);
@@ -132,10 +130,6 @@ void Scene1::Initialize()
 	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::DpadLeft, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<SuccessCommand>());
 	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::DpadUp, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<SuccessCommand>());
 
-
-
-
-
 	// UI 
 	// **
 
@@ -144,9 +138,9 @@ void Scene1::Initialize()
 	// QBert 1 UI
 
 	go = std::make_shared<Hidden::GameObject>();
-	auto UIRenderComponent = std::make_shared<RenderComponent>(go);
-	auto UIHealthText = std::make_shared<TextComponent>(go, "NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
-	auto UIHealth = std::make_shared<UILivesComponent>(go, initialHealth, UIHealthText);
+	auto UIRenderComponent = std::make_shared<RenderComponent>();
+	auto UIHealthText = std::make_shared<TextComponent>("NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
+	auto UIHealth = std::make_shared<UILivesComponent>(initialHealth, UIHealthText);
 
 	auto lifeObserver = std::make_shared<LivesObserver>();
 
@@ -162,9 +156,9 @@ void Scene1::Initialize()
 
 
 	go = std::make_shared<Hidden::GameObject>();
-	UIRenderComponent = std::make_shared<RenderComponent>(go);
-	auto UIScoreText = std::make_shared<TextComponent>(go, "Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
-	auto UIScore = std::make_shared<UIScoreComponent>(go, 0, UIScoreText);
+	UIRenderComponent = std::make_shared<RenderComponent>();
+	auto UIScoreText = std::make_shared<TextComponent>("Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
+	auto UIScore = std::make_shared<UIScoreComponent>(0, UIScoreText);
 
 	auto qbertObserver = std::make_shared<QBertObserver>();
 
@@ -183,9 +177,9 @@ void Scene1::Initialize()
 	//QBert2 UI
 
 	go = std::make_shared<Hidden::GameObject>();
-	UIRenderComponent = std::make_shared<RenderComponent>(go);
-	UIHealthText = std::make_shared<TextComponent>(go, "NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
-	UIHealth = std::make_shared<UILivesComponent>(go, initialHealth, UIHealthText);
+	UIRenderComponent = std::make_shared<RenderComponent>();
+	UIHealthText = std::make_shared<TextComponent>("NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
+	UIHealth = std::make_shared<UILivesComponent>(initialHealth, UIHealthText);
 
 	lifeObserver = std::make_shared<LivesObserver>();
 
@@ -203,9 +197,9 @@ void Scene1::Initialize()
 	initialScore = 10;
 
 	go = std::make_shared<Hidden::GameObject>();
-	UIRenderComponent = std::make_shared<RenderComponent>(go);
-	UIScoreText = std::make_shared<TextComponent>(go, "Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
-	UIScore = std::make_shared<UIScoreComponent>(go, 0, UIScoreText);
+	UIRenderComponent = std::make_shared<RenderComponent>();
+	UIScoreText = std::make_shared<TextComponent>("Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
+	UIScore = std::make_shared<UIScoreComponent>( 0, UIScoreText);
 
 	qbertObserver = std::make_shared<QBertObserver>();
 

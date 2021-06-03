@@ -49,9 +49,6 @@
     <Filter Include="Source Files\Font">
       <UniqueIdentifier>{df3eb263-d2be-4dce-bdb8-70594699f5ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Scene\Object">
-      <UniqueIdentifier>{094c709d-ef4a-4867-8162-cedd274b866a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Time">
       <UniqueIdentifier>{01603505-635a-472d-9c30-0f2d4ecf8c06}</UniqueIdentifier>
     </Filter>
@@ -158,9 +155,6 @@
     </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Header Files\Singleton</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneObject.h">
-      <Filter>Source Files\Scene\Object</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>Source Files\Components</Filter>

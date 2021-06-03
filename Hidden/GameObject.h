@@ -9,7 +9,7 @@
 namespace Hidden
 {
 	class Component;
-	class GameObject final : std::enable_shared_from_this<GameObject>
+	class GameObject final : public std::enable_shared_from_this<GameObject>
 	{
 	public:
 		GameObject(bool isActive = true);
@@ -24,21 +24,22 @@ namespace Hidden
 		void SetPosition(float x, float y);
 		const Transform& GetTransform() const;
 
-		void AddComponent(const std::shared_ptr<Component>& component);
+		void SetLayer(float z);
 
+		void AddComponent(const std::shared_ptr<Component>& component);
 		void RemoveComponent(const std::shared_ptr<Component>& component);
+		template <typename T>
+		std::shared_ptr<T> GetComponent();
 
 		bool GetIsActive();
 		void SetIsActive(bool isActive);
 
-		template <typename T>
-		std::shared_ptr<T> GetComponent();
+
 
 	private:
 		bool m_IsActive;
 		Transform m_Transform;
 		std::vector<std::shared_ptr<Component>> m_Components;
-
 	};
 
 	template<typename T>

@@ -3,15 +3,18 @@
 #include "GameObject.h"
 #include "RenderComponent.h"
 #include "ServiceLocator.h"
-
+#include <algorithm>
 
 using namespace Hidden;
 
-Scene::Scene(const std::string& name) : m_Name(name) {}
+Scene::Scene(const std::string& name) : m_Name(name)
+{
+	
+}
 
 Scene::~Scene() = default;
 
-void Scene::Add(const std::shared_ptr<SceneObject>& object)
+void Scene::Add(const std::shared_ptr<GameObject>& object)
 {
 	m_Objects.push_back(object);
 }
@@ -21,10 +24,10 @@ void Hidden::Scene::AddRenderable(const std::weak_ptr<RenderComponent>& renderCo
 	m_Renderables.push_back(renderComponent);
 }
 
-void Hidden::Scene::Remove(const SceneObject& object)
+void Hidden::Scene::Remove(const GameObject& object)
 {
 
-	auto it = std::find_if(m_Objects.begin(), m_Objects.end(), [&object](std::shared_ptr<SceneObject> obj)
+	auto it = std::find_if(m_Objects.begin(), m_Objects.end(), [&object](std::shared_ptr<GameObject> obj)
 		{
 			return &object == obj.get();
 		});
@@ -37,9 +40,9 @@ void Hidden::Scene::Remove(const SceneObject& object)
 	m_Objects.erase(it);
 }
 
-void Hidden::Scene::RemoveRenderable(const RenderComponent& renderComponent)
+void Hidden::Scene::RemoveRenderable(const Component& renderComponent)
 {
-	auto it = std::find_if(m_Renderables.begin(), m_Renderables.end(), [&renderComponent](std::weak_ptr<RenderComponent> obj)
+	auto it = std::find_if(m_Renderables.begin(), m_Renderables.end(), [&renderComponent](std::weak_ptr<Component> obj)
 		{
 			return &renderComponent == obj.lock().get();
 		});
@@ -50,6 +53,16 @@ void Hidden::Scene::RemoveRenderable(const RenderComponent& renderComponent)
 		return;
 	}
 	m_Renderables.erase(it);
+}
+
+void Hidden::Scene::RefreshRenderables()
+{	
+	//TODO sort renderables
+	std::sort(m_Renderables.begin(), m_Renderables.end(), [](std::weak_ptr<Component> lhs, std::weak_ptr<Component> rhs) 
+		{
+
+			return lhs.lock()->GetParentGameObject().lock()->GetTransform().GetPosition().z > rhs.lock()->GetParentGameObject().lock()->GetTransform().GetPosition().z;
+		});
 }
 
 const std::string& Hidden::Scene::GetName()
@@ -64,19 +77,29 @@ void Hidden::Scene::RootInitialize()
 
 void Hidden::Scene::RootUpdate()
 {
-	Update();
 	for (auto go : m_Objects)
 	{
-		go->Update();
+		if (go->GetIsActive())
+		{
+			go->Update();
+		}
 	}
+	Update();
+
+	RefreshRenderables();
 }
 
 void Hidden::Scene::RootRender() const
 {
-	Render();
 	for (auto render : m_Renderables)
 	{
-		render.lock()->Render();
+		auto shrdRender = render.lock();
+
+		if (shrdRender->GetParentGameObject().lock()->GetIsActive())
+		{
+			shrdRender->Render();
+		}
 	}
+	Render();
 }
 

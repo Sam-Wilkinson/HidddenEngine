@@ -9,6 +9,14 @@ std::weak_ptr<Hidden::GameObject> Hidden::Component::GetParentGameObject() const
 	return m_pParent;
 }
 
+void Hidden::Component::RemoveParentGameObject(std::weak_ptr<GameObject> parent)
+{
+	if (parent.lock() == m_pParent.lock())
+	{
+		m_pParent.reset();
+	}
+}
+
 Hidden::Component::Component()
 	:m_pParent {}
 {
@@ -20,7 +28,7 @@ Hidden::Component::Component()
 //{
 //}
 
-void Hidden::Component::Render()
+void Hidden::Component::Render() const
 {
 }
 

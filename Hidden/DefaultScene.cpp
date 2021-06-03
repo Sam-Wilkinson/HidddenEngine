@@ -15,7 +15,7 @@ void Hidden::DefaultScene::Initialize()
 	//
 	auto go = std::make_shared<GameObject>();
 	// Create RenderComponent and add Texture to it
-	auto renderComponent = std::make_shared<RenderComponent>(go);
+	auto renderComponent = std::make_shared<RenderComponent>();
 	renderComponent->SetTexture("background.jpg");
 	// Register it as renderable for the scene
 	AddRenderable(renderComponent);
@@ -25,7 +25,7 @@ void Hidden::DefaultScene::Initialize()
 	//
 	go = std::make_shared<GameObject>();
 	// Create RenderComponent and add Texture to it
-	renderComponent = std::make_shared<RenderComponent>(go);
+	renderComponent = std::make_shared<RenderComponent>();
 	renderComponent->SetTexture("logo.png");
 	// Register it as renderable for the scene
 	AddRenderable(renderComponent);
@@ -36,13 +36,12 @@ void Hidden::DefaultScene::Initialize()
 	//
 	//go = std::make_shared<GameObject>();
 	//
-	//renderComponent = std::make_shared<RenderComponent>(go);
+	//renderComponent = std::make_shared<RenderComponent>();
 	//auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 	//auto textComponent = std::make_shared<TextComponent>(go, "Programming 4 Assignment", font, renderComponent);
 	////auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
 	//go->AddComponent(textComponent);
 	//go->AddComponent(renderComponent);
-	//renderComponent->SetParentGameObject(go);
 	//go->SetPosition(80, 20);
 	//AddRenderable(renderComponent);
 	//Add(go);
