@@ -1,8 +1,8 @@
 #include "QBertPCH.h"
 #include "UILivesComponent.h"
 
-UILivesComponent::UILivesComponent(std::weak_ptr<Hidden::GameObject> pParent,size_t initialHealth, const std::weak_ptr<TextComponent> textComponent)
-	:Component(pParent), m_NrLives{initialHealth}, m_NeedsUpdate{false}, m_TextComponent{textComponent}
+UILivesComponent::UILivesComponent(size_t initialHealth, const std::weak_ptr<TextComponent> textComponent)
+	:Component(), m_NrLives{initialHealth}, m_NeedsUpdate{false}, m_TextComponent{textComponent}
 {}
 
 void UILivesComponent::Update()

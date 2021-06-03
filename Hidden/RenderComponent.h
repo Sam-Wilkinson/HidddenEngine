@@ -9,7 +9,7 @@ namespace Hidden
 	class RenderComponent final : public Component
 	{
 	public:
-		RenderComponent(std::weak_ptr<GameObject> pParent);
+		RenderComponent();
 		~RenderComponent();
 
 		void SetTexture(const std::string& filename);

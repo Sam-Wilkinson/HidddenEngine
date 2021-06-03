@@ -15,7 +15,7 @@ public:
 		endStage
 	};
 
-	QBertComponent(std::weak_ptr<Hidden::GameObject> pParent);
+	QBertComponent();
 	~QBertComponent() = default;
 
 	QBertComponent(const QBertComponent & other) = default;

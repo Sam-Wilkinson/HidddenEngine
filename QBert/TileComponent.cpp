@@ -2,8 +2,8 @@
 #include "TileComponent.h"
 #include "InputManager.h"
 
-TileComponent::TileComponent(std::weak_ptr<Hidden::GameObject> pParent)
-	:Component(pParent)
+TileComponent::TileComponent()
+	:Component()
 {
 }
 
@@ -24,5 +24,6 @@ void TileComponent::ChangeTileColor()
 std::weak_ptr<Subject<TileComponent>> TileComponent::GetSubject()
 {
 	return m_pSubject;
+	
 }
 

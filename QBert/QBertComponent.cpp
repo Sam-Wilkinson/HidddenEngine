@@ -2,8 +2,8 @@
 #include "QBertComponent.h"
 #include "InputManager.h"
 
-QBertComponent::QBertComponent(std::weak_ptr<Hidden::GameObject> pParent)
-	:Component(pParent), m_pSubject{ std::make_shared<Subject<QBertComponent>>()}, m_CurrentEvent{Event::endStage}
+QBertComponent::QBertComponent()
+	:Component(), m_pSubject{ std::make_shared<Subject<QBertComponent>>()}, m_CurrentEvent{Event::endStage}
 {
 }
 

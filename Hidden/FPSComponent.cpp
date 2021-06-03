@@ -4,8 +4,8 @@
 #include <numeric>
 
 
-Hidden::FPSComponent::FPSComponent(const std::weak_ptr<GameObject> pParent, const std::weak_ptr<TextComponent> textComponent)
-	:Component(pParent), m_FPS{}, m_TextComponent{ textComponent }, m_TotalTime{}
+Hidden::FPSComponent::FPSComponent(const std::weak_ptr<TextComponent> textComponent)
+	:Component(), m_FPS{}, m_TextComponent{ textComponent }, m_TotalTime{}
 {
 }
 void Hidden::FPSComponent::Update()

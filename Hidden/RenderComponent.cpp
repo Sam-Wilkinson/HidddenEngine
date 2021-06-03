@@ -5,8 +5,8 @@
 #include "GameObject.h"
 #include "Transform.h"
 
-Hidden::RenderComponent::RenderComponent(std::weak_ptr<GameObject> pParent)
-	:Component(pParent)
+Hidden::RenderComponent::RenderComponent()
+	:Component()
 {
 }
 

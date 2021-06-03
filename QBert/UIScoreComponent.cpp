@@ -1,8 +1,8 @@
 #include "QBertPCH.h"
 #include "UIScoreComponent.h"
 
-UIScoreComponent::UIScoreComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialScore, const std::weak_ptr<TextComponent> textComponent)
-	:Component(pParent), m_Score{initialScore}, m_TextComponent{textComponent}
+UIScoreComponent::UIScoreComponent(size_t initialScore, const std::weak_ptr<TextComponent> textComponent)
+	:Component(), m_Score{initialScore}, m_TextComponent{textComponent}
 {
 }
 

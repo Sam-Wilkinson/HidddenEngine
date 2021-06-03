@@ -2,8 +2,8 @@
 #include "HealthComponent.h"
 #include "InputManager.h"
 
-HealthComponent::HealthComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialHealth)
-	:Component(pParent), m_Health{initialHealth}, m_CurrentEvent{}, m_pSubject{ std::make_shared<Subject<HealthComponent>>() }
+HealthComponent::HealthComponent(size_t initialHealth)
+	:Component(), m_Health{initialHealth}, m_CurrentEvent{}, m_pSubject{ std::make_shared<Subject<HealthComponent>>() }
 {}
 
 void HealthComponent::Update()

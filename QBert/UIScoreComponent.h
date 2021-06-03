@@ -12,7 +12,7 @@ using namespace Hidden;
 class UIScoreComponent final : public Hidden::Component
 {
 public:
-	UIScoreComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialScore, const std::weak_ptr<TextComponent> textComponent);
+	UIScoreComponent(size_t initialScore, const std::weak_ptr<TextComponent> textComponent);
 	~UIScoreComponent() = default;
 
 	UIScoreComponent(const UIScoreComponent & other) = delete;

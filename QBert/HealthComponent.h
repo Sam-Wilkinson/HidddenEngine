@@ -15,7 +15,7 @@ public:
 		death
 	};
 
-	HealthComponent(std::weak_ptr<Hidden::GameObject> pParent, size_t initialHealth);
+	HealthComponent(size_t initialHealth);
 	~HealthComponent() = default;
 
 	HealthComponent(const HealthComponent & other) = default;

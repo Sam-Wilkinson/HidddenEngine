@@ -9,7 +9,7 @@ using namespace Hidden;
 class TileComponent : public Hidden::Component
 {
 public:
-	TileComponent(std::weak_ptr<Hidden::GameObject> pParent);
+	TileComponent();
 	~TileComponent() = default;
 
 	TileComponent(const TileComponent & other) = default;
