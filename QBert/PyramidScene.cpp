@@ -1,13 +1,20 @@
 #include "QBertPCH.h"
 #include "PyramidScene.h"
+
+// ECS
 #include "GameObject.h"
+#include "Transform.h"
 #include "SpriteComponent.h"
 #include "RenderComponent.h"
+#include "TileComponent.h"
 
+// Globals
 #include "InputManager.h"
-#include "IncrementSprite.h"
 #include "GameConfig.h"
-#include "Transform.h"
+
+//Commands
+#include "IncrementSprite.h"
+#include "SuccessCommand.h"
 
 PyramidScene::PyramidScene()
 	:Scene("PyramidScene")
@@ -46,6 +53,7 @@ void PyramidScene::Initialize()
 
 
 	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonA, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<IncrementSprite>());
+	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonB, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<SuccessCommand>());
 
 }
 
@@ -96,11 +104,14 @@ void PyramidScene::CreateTiles()
 			auto spriteComponent = std::make_shared<SpriteComponent>(renderComponent, 2, 1, 256, 256);
 			spriteComponent->SetTexture("Level1_Tiles.png");
 
+			auto tileComponent = std::make_shared<TileComponent>(i, j, spriteComponent);
+
 			// Register it as renderable for the scene
 			AddRenderable(renderComponent);
 			// Register the renderComponent to the GameObject
 			go->AddComponent(spriteComponent);
 			go->AddComponent(renderComponent);
+			go->AddComponent(tileComponent);
 			go->SetLayer(1.0f);
 			Add(go);
 			m_Pyramid.push_back(go);

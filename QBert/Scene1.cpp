@@ -92,13 +92,13 @@ void Scene1::Initialize()
 
 	// QBert
 	// *****
-	size_t initialHealth{ 10 };
-	go = std::make_shared<Hidden::GameObject>();
-	auto QBertHealth = std::make_shared<HealthComponent>(initialHealth);
-	auto QBert = std::make_shared<QBertComponent>();
-	go->AddComponent(QBertHealth);
-	go->AddComponent(QBert);
-	Add(go);
+	//size_t initialHealth{ 10 };
+	//go = std::make_shared<Hidden::GameObject>();
+	//auto QBertHealth = std::make_shared<HealthComponent>(initialHealth);
+	//auto QBert = std::make_shared<QBertComponent>();
+	//go->AddComponent(QBertHealth);
+	//go->AddComponent(QBert);
+	//Add(go);
 
 	// add input for health
 	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonRightBack, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<LoseLifeCommand>());
@@ -112,13 +112,13 @@ void Scene1::Initialize()
 
 
 
-	//Qbert 2
-	go = std::make_shared<Hidden::GameObject>();
-	auto QBertHealth2 = std::make_shared<HealthComponent>( initialHealth);
-	auto QBert2 = std::make_shared<QBertComponent>();
-	go->AddComponent(QBertHealth2);
-	go->AddComponent(QBert2);
-	Add(go);
+	////Qbert 2
+	//go = std::make_shared<Hidden::GameObject>();
+	//auto QBertHealth2 = std::make_shared<HealthComponent>( initialHealth);
+	//auto QBert2 = std::make_shared<QBertComponent>();
+	//go->AddComponent(QBertHealth2);
+	//go->AddComponent(QBert2);
+	//Add(go);
 
 	// add input for health
 	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonLeftBack, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<LoseLifeCommand>());
@@ -133,97 +133,97 @@ void Scene1::Initialize()
 	// UI 
 	// **
 
-	size_t initialScore{ 0 };
+	//size_t initialScore{ 0 };
 
-	// QBert 1 UI
-
-	go = std::make_shared<Hidden::GameObject>();
-	auto UIRenderComponent = std::make_shared<RenderComponent>();
-	auto UIHealthText = std::make_shared<TextComponent>("NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
-	auto UIHealth = std::make_shared<UILivesComponent>(initialHealth, UIHealthText);
-
-	auto lifeObserver = std::make_shared<LivesObserver>();
-
-	QBertHealth->GetSubject().lock()->AddObserver(lifeObserver);
-	UIHealth->SetLivesObserver(lifeObserver);
-
-	go->AddComponent(UIHealth);
-	go->AddComponent(UIHealthText);
-	go->AddComponent(UIRenderComponent);
-	go->SetPosition(10, 150);
-	Add(go);
-	AddRenderable(UIRenderComponent);
-
-
-	go = std::make_shared<Hidden::GameObject>();
-	UIRenderComponent = std::make_shared<RenderComponent>();
-	auto UIScoreText = std::make_shared<TextComponent>("Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
-	auto UIScore = std::make_shared<UIScoreComponent>(0, UIScoreText);
-
-	auto qbertObserver = std::make_shared<QBertObserver>();
-
-	QBert->GetSubject().lock()->AddObserver(qbertObserver);
-	UIScore->SetQBertObserver(qbertObserver);
-
-	go->AddComponent(UIScore);
-	go->AddComponent(UIScoreText);
-	go->AddComponent(UIRenderComponent);
-	go->SetPosition(10, 200);
-	Add(go);
-	AddRenderable(UIRenderComponent);
-
-
-
-	//QBert2 UI
-
-	go = std::make_shared<Hidden::GameObject>();
-	UIRenderComponent = std::make_shared<RenderComponent>();
-	UIHealthText = std::make_shared<TextComponent>("NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
-	UIHealth = std::make_shared<UILivesComponent>(initialHealth, UIHealthText);
-
-	lifeObserver = std::make_shared<LivesObserver>();
-
-	QBertHealth2->GetSubject().lock()->AddObserver(lifeObserver);
-	UIHealth->SetLivesObserver(lifeObserver);
-
-	go->AddComponent(UIHealth);
-	go->AddComponent(UIHealthText);
-	go->AddComponent(UIRenderComponent);
-	go->SetPosition(10, 250);
-	Add(go);
-	AddRenderable(UIRenderComponent);
-
-
-	initialScore = 10;
-
-	go = std::make_shared<Hidden::GameObject>();
-	UIRenderComponent = std::make_shared<RenderComponent>();
-	UIScoreText = std::make_shared<TextComponent>("Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
-	UIScore = std::make_shared<UIScoreComponent>( 0, UIScoreText);
-
-	qbertObserver = std::make_shared<QBertObserver>();
-
-	QBert2->GetSubject().lock()->AddObserver(qbertObserver);
-	UIScore->SetQBertObserver(qbertObserver);
-
-	go->AddComponent(UIScore);
-	go->AddComponent(UIScoreText);
-	go->AddComponent(UIRenderComponent);
-	go->SetPosition(10, 300);
-	Add(go);
-	AddRenderable(UIRenderComponent);
-
-
-	//Sounds & Music
-
-	std::shared_ptr<SoundSystem> ss = std::make_shared<LoggingSoundSystem>(std::make_unique<SimpleSDL2SoundSystem>());
-	//std::shared_ptr<SoundSystem> ss = std::make_shared<SimpleSDL2SoundSystem>();
-	ServiceLocator::RegisterSoundSystem(ss);
-
-	const std::string& filePath{ "./Log.txt" };
-	ServiceLocator::GetLoggerSystem().StartFileLogging(filePath);
-
-	ServiceLocator::GetSoundSystem().PlayMusic("../3rdParty/Simple-SDL2-Audio-master/music/highlands.wav", 1.0f);
+	//// QBert 1 UI
+	//
+	//go = std::make_shared<Hidden::GameObject>();
+	//auto UIRenderComponent = std::make_shared<RenderComponent>();
+	//auto UIHealthText = std::make_shared<TextComponent>("NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
+	//auto UIHealth = std::make_shared<UILivesComponent>(initialHealth, UIHealthText);
+	//
+	//auto lifeObserver = std::make_shared<LivesObserver>();
+	//
+	//QBertHealth->GetSubject().lock()->AddObserver(lifeObserver);
+	//UIHealth->SetLivesObserver(lifeObserver);
+	//
+	//go->AddComponent(UIHealth);
+	//go->AddComponent(UIHealthText);
+	//go->AddComponent(UIRenderComponent);
+	//go->SetPosition(10, 150);
+	//Add(go);
+	//AddRenderable(UIRenderComponent);
+	//
+	//
+	//go = std::make_shared<Hidden::GameObject>();
+	//UIRenderComponent = std::make_shared<RenderComponent>();
+	//auto UIScoreText = std::make_shared<TextComponent>("Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
+	//auto UIScore = std::make_shared<UIScoreComponent>(0, UIScoreText);
+	//
+	//auto qbertObserver = std::make_shared<QBertObserver>();
+	//
+	//QBert->GetSubject().lock()->AddObserver(qbertObserver);
+	//UIScore->SetQBertObserver(qbertObserver);
+	//
+	//go->AddComponent(UIScore);
+	//go->AddComponent(UIScoreText);
+	//go->AddComponent(UIRenderComponent);
+	//go->SetPosition(10, 200);
+	//Add(go);
+	//AddRenderable(UIRenderComponent);
+	//
+	//
+	//
+	////QBert2 UI
+	//
+	//go = std::make_shared<Hidden::GameObject>();
+	//UIRenderComponent = std::make_shared<RenderComponent>();
+	//UIHealthText = std::make_shared<TextComponent>("NrLives: " + std::to_string(initialHealth), fpsFont, UIRenderComponent);
+	//UIHealth = std::make_shared<UILivesComponent>(initialHealth, UIHealthText);
+	//
+	//lifeObserver = std::make_shared<LivesObserver>();
+	//
+	//QBertHealth2->GetSubject().lock()->AddObserver(lifeObserver);
+	//UIHealth->SetLivesObserver(lifeObserver);
+	//
+	//go->AddComponent(UIHealth);
+	//go->AddComponent(UIHealthText);
+	//go->AddComponent(UIRenderComponent);
+	//go->SetPosition(10, 250);
+	//Add(go);
+	//AddRenderable(UIRenderComponent);
+	//
+	//
+	//initialScore = 10;
+	//
+	//go = std::make_shared<Hidden::GameObject>();
+	//UIRenderComponent = std::make_shared<RenderComponent>();
+	//UIScoreText = std::make_shared<TextComponent>("Score: " + std::to_string(initialScore), fpsFont, UIRenderComponent);
+	//UIScore = std::make_shared<UIScoreComponent>( 0, UIScoreText);
+	//
+	//qbertObserver = std::make_shared<QBertObserver>();
+	//
+	//QBert2->GetSubject().lock()->AddObserver(qbertObserver);
+	//UIScore->SetQBertObserver(qbertObserver);
+	//
+	//go->AddComponent(UIScore);
+	//go->AddComponent(UIScoreText);
+	//go->AddComponent(UIRenderComponent);
+	//go->SetPosition(10, 300);
+	//Add(go);
+	//AddRenderable(UIRenderComponent);
+	//
+	//
+	////Sounds & Music
+	//
+	//std::shared_ptr<SoundSystem> ss = std::make_shared<LoggingSoundSystem>(std::make_unique<SimpleSDL2SoundSystem>());
+	////std::shared_ptr<SoundSystem> ss = std::make_shared<SimpleSDL2SoundSystem>();
+	//ServiceLocator::RegisterSoundSystem(ss);
+	//
+	//const std::string& filePath{ "./Log.txt" };
+	//ServiceLocator::GetLoggerSystem().StartFileLogging(filePath);
+	//
+	//ServiceLocator::GetSoundSystem().PlayMusic("../3rdParty/Simple-SDL2-Audio-master/music/highlands.wav", 1.0f);
 
 }
 

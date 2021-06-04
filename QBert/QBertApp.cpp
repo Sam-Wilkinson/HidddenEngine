@@ -19,7 +19,7 @@ using namespace Hidden;
 
 void QBert::LoadGame() const
 {
-	auto scene = std::make_shared<QBertScene>();
+	auto scene = std::make_shared<PyramidScene>();
 
 	SceneManager::GetInstance().AddScene(scene);
 
