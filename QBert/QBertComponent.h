@@ -1,6 +1,7 @@
 #pragma once
 #include <Component.h>
 #include "Subject.h"
+#include "SpriteComponent.h"
 
 using namespace Hidden;
 class QBertComponent : public Hidden::Component
@@ -15,7 +16,15 @@ public:
 		endStage
 	};
 
-	QBertComponent();
+	enum class Rotation
+	{
+		backRight,
+		backLeft,
+		frontRight,
+		frontLeft
+	};
+
+	QBertComponent(std::weak_ptr<SpriteComponent> spriteComponent);
 	~QBertComponent() = default;
 
 	QBertComponent(const QBertComponent & other) = default;
@@ -32,7 +41,7 @@ private:
 private:
 	std::shared_ptr<Subject<QBertComponent>> m_pSubject;
 	Event m_CurrentEvent;
-
+	std::weak_ptr<SpriteComponent> m_SpriteComponent;
 
 };
 

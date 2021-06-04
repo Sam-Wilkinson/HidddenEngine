@@ -81,6 +81,12 @@
     <Filter Include="Source Files\Scenes\QBertScene">
       <UniqueIdentifier>{0427015d-d427-41a7-bb73-fcd1fc3867e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\Movement">
+      <UniqueIdentifier>{a82a873d-a43e-49cc-a520-f8c49781f81c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Movement">
+      <UniqueIdentifier>{1ffaad5e-9b63-4b6f-ad61-9781ab9a86d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HealthComponent.cpp">
@@ -131,6 +137,9 @@
     <ClCompile Include="QBertScene.cpp">
       <Filter>Source Files\Scenes\QBertScene</Filter>
     </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Source Files\Components\Movement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HealthComponent.h">
@@ -180,6 +189,9 @@
     </ClInclude>
     <ClInclude Include="QBertScene.h">
       <Filter>Source Files\Scenes\QBertScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Source Files\Components\Movement</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -175,6 +175,7 @@
     <ClCompile Include="IncrementSprite.cpp" />
     <ClCompile Include="LivesObserver.cpp" />
     <ClCompile Include="LoseLifeCommand.cpp" />
+    <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="PyramidScene.cpp" />
     <ClCompile Include="QBertComponent.cpp" />
     <ClCompile Include="QBertObserver.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="IncrementSprite.h" />
     <ClInclude Include="LivesObserver.h" />
     <ClInclude Include="LoseLifeCommand.h" />
+    <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="PyramidScene.h" />
     <ClInclude Include="QBertApp.h" />
     <ClInclude Include="QBertComponent.h" />

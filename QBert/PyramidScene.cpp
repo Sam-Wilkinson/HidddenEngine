@@ -77,25 +77,24 @@ void PyramidScene::CreateTiles()
 	int marginY = windowHeight / 5;
 
 	int tileSize = 100;
-	//int MovementX = 125;
-	//int movementY = 75;
 
 	float pyramidTopX{ static_cast<float>(windowWidth / 2)};
 	float pyramidTopY{ static_cast<float>(marginY) };
 
 	float tilePosX{pyramidTopX};
-	float tilePosY{ pyramidTopY  };
+	float tilePosY{pyramidTopY};
 
-	for (int i{}; i < m_PyramidHeight; ++i)
+	for (int row{}; row < m_PyramidHeight; ++row)
 	{
 
-		int j{};
+		// TODO move movement code to a function that does distance between hexTiles rather than hard coded here
+		int col{};
 		
-		while (j <= i)
+		while (col <= row)
 		{
 			auto go = std::make_shared<Hidden::GameObject>();
 
-			tilePosX = pyramidTopX - (tileSize) * i + (tileSize / 2) * i + (tileSize * j);
+			tilePosX = pyramidTopX - (tileSize - (tileSize / 2)) * row  + (tileSize * col);
 			go->GetTransform().MovePosition(tilePosX , tilePosY );
 
 
@@ -104,7 +103,7 @@ void PyramidScene::CreateTiles()
 			auto spriteComponent = std::make_shared<SpriteComponent>(renderComponent, 2, 1, 256, 256);
 			spriteComponent->SetTexture("Level1_Tiles.png");
 
-			auto tileComponent = std::make_shared<TileComponent>(i, j, spriteComponent);
+			auto tileComponent = std::make_shared<TileComponent>(row, col, spriteComponent);
 
 			// Register it as renderable for the scene
 			AddRenderable(renderComponent);
@@ -116,10 +115,10 @@ void PyramidScene::CreateTiles()
 			Add(go);
 			m_Pyramid.push_back(go);
 
-			++j;
+			++col;
 		}
 
-		tilePosY = pyramidTopY + (tileSize * 0.75f) * (i + 1);
+		tilePosY = pyramidTopY + (tileSize * 0.75f) * (row + 1);
 
 	}
 
