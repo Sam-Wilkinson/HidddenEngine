@@ -1,7 +1,7 @@
 #pragma once
 #include <Scene.h>
 
-class TestScene : public Hidden::Scene
+class TestScene final : public Hidden::Scene
 {
 public:
 	TestScene();
