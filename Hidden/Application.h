@@ -6,12 +6,15 @@ namespace Hidden
 	class Application
 	{
 	public:
-		void Initialize();
+		virtual void Initialize();
 		virtual void LoadGame() const;
 		virtual void Cleanup();
 		void Run();
-	private:
+
+	protected:
 		SDL_Window* m_Window{};
+
+	private:
 
 		void LoadDemo() const ;
 

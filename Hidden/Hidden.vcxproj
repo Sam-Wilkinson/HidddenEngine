@@ -224,9 +224,11 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
     <ClInclude Include="SimpleSDL2SoundSystem.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SoundSystem.h" />
+    <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="TextComponent.h" />
     <ClInclude Include="Texture2D.h" />
+    <ClInclude Include="TextureData.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Xbox360Controller.h" />
   </ItemGroup>
@@ -331,6 +333,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
     <ClCompile Include="ServiceLocator.cpp" />
     <ClCompile Include="SimpleSDL2SoundSystem.cpp" />
     <ClCompile Include="SoundSystem.cpp" />
+    <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="TextComponent.cpp" />
     <ClCompile Include="Texture2D.cpp" />

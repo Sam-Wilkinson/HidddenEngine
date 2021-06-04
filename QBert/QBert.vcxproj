@@ -172,8 +172,10 @@
   <ItemGroup>
     <ClCompile Include="DeathCommand.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="IncrementSprite.cpp" />
     <ClCompile Include="LivesObserver.cpp" />
     <ClCompile Include="LoseLifeCommand.cpp" />
+    <ClCompile Include="PyramidScene.cpp" />
     <ClCompile Include="QBertComponent.cpp" />
     <ClCompile Include="QBertObserver.cpp" />
     <ClCompile Include="QBertPCH.cpp">
@@ -182,6 +184,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="QBertScene.cpp" />
     <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TileComponent.cpp" />
@@ -192,12 +195,15 @@
   <ItemGroup>
     <ClInclude Include="DeathCommand.h" />
     <ClInclude Include="HealthComponent.h" />
+    <ClInclude Include="IncrementSprite.h" />
     <ClInclude Include="LivesObserver.h" />
     <ClInclude Include="LoseLifeCommand.h" />
+    <ClInclude Include="PyramidScene.h" />
     <ClInclude Include="QBertApp.h" />
     <ClInclude Include="QBertComponent.h" />
     <ClInclude Include="QBertObserver.h" />
     <ClInclude Include="QBertPCH.h" />
+    <ClInclude Include="QBertScene.h" />
     <ClInclude Include="Scene1.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TileComponent.h" />

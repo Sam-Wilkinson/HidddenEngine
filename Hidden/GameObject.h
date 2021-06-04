@@ -22,7 +22,7 @@ namespace Hidden
 		void Update();
 
 		void SetPosition(float x, float y);
-		const Transform& GetTransform() const;
+		Transform& GetTransform();
 
 		void SetLayer(float z);
 

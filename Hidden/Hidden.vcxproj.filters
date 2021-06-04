@@ -124,6 +124,9 @@
     <Filter Include="Source Files\Hidden\Scene">
       <UniqueIdentifier>{679c1185-125a-443d-bc1c-a1de7eaa4b5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\Sprite">
+      <UniqueIdentifier>{44af5cc0-6e9a-45e4-97cc-bb790537fbed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -246,6 +249,12 @@
     <ClInclude Include="DefaultScene.h">
       <Filter>Source Files\Hidden\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>Source Files\Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -355,6 +364,9 @@
     </ClCompile>
     <ClCompile Include="DefaultScene.cpp">
       <Filter>Source Files\Hidden\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>Source Files\Components\Sprite</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

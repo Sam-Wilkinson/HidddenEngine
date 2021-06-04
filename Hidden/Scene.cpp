@@ -19,7 +19,7 @@ void Scene::Add(const std::shared_ptr<GameObject>& object)
 	m_Objects.push_back(object);
 }
 
-void Hidden::Scene::AddRenderable(const std::weak_ptr<RenderComponent>& renderComponent)
+void Hidden::Scene::AddRenderable(const std::weak_ptr<Component>& renderComponent)
 {
 	m_Renderables.push_back(renderComponent);
 }

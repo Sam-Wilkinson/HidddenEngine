@@ -4,6 +4,7 @@
 #include "InputManager.h"
 #include "Command.h"
 #include "SuccessCommand.h"
+#include "RenderComponent.h"
 
 
 TestScene::TestScene()

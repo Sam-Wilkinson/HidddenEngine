@@ -1,12 +1,11 @@
 #pragma once
 #include "SceneManager.h"
-#include "RenderComponent.h"
-#include <array>
 
 namespace Hidden
 {
 
 	class GameObject;
+	class Component;
 	class Scene
 	{
 	public:
@@ -29,7 +28,7 @@ namespace Hidden
 
 	protected:
 		void Add(const std::shared_ptr<GameObject>& object);
-		void AddRenderable(const std::weak_ptr<RenderComponent>& renderComponent);
+		void AddRenderable(const std::weak_ptr<Component>& renderComponent);
 		void Remove(const GameObject& object);
 		void RemoveRenderable(const Component& renderComponent);
 

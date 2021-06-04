@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "ResourceManager.h"
 #include "FPSComponent.h"
+#include "RenderComponent.h"
 
 Hidden::DefaultScene::DefaultScene()
 	:Scene("DefaultScene")

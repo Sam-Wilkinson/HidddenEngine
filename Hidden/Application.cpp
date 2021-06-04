@@ -19,8 +19,14 @@
 using namespace std;
 using namespace std::chrono;
 
+#include "GameConfig.h"
+WindowSize GameConfig::window{ 640,400 };
+
 void Hidden::Application::Initialize()
 {
+
+	Initialize();
+
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) 
 	{
 		throw std::runtime_error(std::string("SDL_Init Error: ") + SDL_GetError());
@@ -30,8 +36,8 @@ void Hidden::Application::Initialize()
 		"Programming 4 assignment",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		640,
-		480,
+		GameConfig::window.Width,
+		GameConfig::window.Height,
 		SDL_WINDOW_OPENGL
 	);
 	if (m_Window == nullptr) 
@@ -61,7 +67,7 @@ void Hidden::Application::Cleanup()
 
 void Hidden::Application::Run()
 {
-	Initialize();
+	Application::Initialize();
 
 	// tell the resource manager where he can find the game data
 	ResourceManager::GetInstance().Init("../Data/");

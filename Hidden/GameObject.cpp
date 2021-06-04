@@ -30,7 +30,7 @@ void Hidden::GameObject::SetPosition(float x, float y)
 }
 
 
-const Hidden::Transform& Hidden::GameObject::GetTransform() const
+Hidden::Transform& Hidden::GameObject::GetTransform()
 {
 	return m_Transform;
 }

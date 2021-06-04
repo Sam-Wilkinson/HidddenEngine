@@ -1,5 +1,6 @@
 #pragma once
 #include <Scene.h>
+#include "RenderComponent.h"
 
 class TestScene final : public Hidden::Scene
 {
