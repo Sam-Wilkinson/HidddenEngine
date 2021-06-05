@@ -74,52 +74,31 @@ void PyramidScene::Initialize()
 	go->GetTransform().SetPosition(m_PyramidTopX, m_PyramidTopY - m_TileSize / 2);
 	Add(go);
 
-	CreateTiles();
 
-
-	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonA, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<IncrementSprite>());
-	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonB, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<SuccessCommand>());
-
-}
-
-void PyramidScene::Update()
-{
-	auto command = InputManager::GetInstance().OnPressed({ 0,XBox360Controller::ControllerButton::ButtonA });
-
-	command.lock()->execute(m_Tile);
-
-}
-
-void PyramidScene::Render() const
-{
-}
-
-void PyramidScene::CreateTiles()
-{
-
-	float tilePosX{m_PyramidTopX};
-	float tilePosY{m_PyramidTopY};
+	float tilePosX{ m_PyramidTopX };
+	float tilePosY{ m_PyramidTopY };
 
 	for (int row{}; row < m_PyramidHeight; ++row)
 	{
 
 		// TODO move movement code to a function that does distance between hexTiles rather than hard coded here
 		int col{};
-		
+
 		while (col <= row)
 		{
-			auto go = std::make_shared<Hidden::GameObject>();
+			go = std::make_shared<Hidden::GameObject>();
 
-			tilePosX = m_PyramidTopX - (m_TileSize - (m_TileSize / 2)) * row  + (m_TileSize * col);
-			go->GetTransform().MovePosition(tilePosX , tilePosY );
+			tilePosX = m_PyramidTopX - (m_TileSize - (m_TileSize / 2)) * row + (m_TileSize * col);
+			go->GetTransform().MovePosition(tilePosX, tilePosY);
 
 
-			auto renderComponent = std::make_shared<RenderComponent>();
+			renderComponent = std::make_shared<RenderComponent>();
 			renderComponent->SetDestinationSize(m_TileSize, m_TileSize);
-			auto spriteComponent = std::make_shared<SpriteComponent>(renderComponent, 2, 1, 256, 256);
+			spriteComponent = std::make_shared<SpriteComponent>(renderComponent, 2, 1, 256, 256);
 			spriteComponent->SetTexture("Level1_Tiles.png");
 
 			auto tileComponent = std::make_shared<TileComponent>(row, col, spriteComponent);
+			movementComponent->GetSubject().lock()->AddObserver(tileComponent->GetObserver());
 
 			// Register it as renderable for the scene
 			AddRenderable(renderComponent);
@@ -138,4 +117,20 @@ void PyramidScene::CreateTiles()
 
 	}
 
+
+	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonA, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<IncrementSprite>());
+	InputManager::GetInstance().CreateCommand({ 0,Hidden::XBox360Controller::ControllerButton::ButtonB, XBox360Controller::ButtonEventType::OnPressed }, std::make_shared<SuccessCommand>());
+
+}
+
+void PyramidScene::Update()
+{
+	auto command = InputManager::GetInstance().OnPressed({ 0,XBox360Controller::ControllerButton::ButtonA });
+
+	command.lock()->execute(m_Tile);
+
+}
+
+void PyramidScene::Render() const
+{
 }

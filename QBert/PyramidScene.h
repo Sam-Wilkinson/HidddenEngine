@@ -22,7 +22,5 @@ private:
 	float m_PyramidTopY;
 	int m_TileSize;
 
-	void CreateTiles();
-
 };
 

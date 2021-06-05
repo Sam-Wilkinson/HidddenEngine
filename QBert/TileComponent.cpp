@@ -7,30 +7,41 @@ TileComponent::TileComponent(size_t row, size_t col, std::weak_ptr<SpriteCompone
 	:Component()
 	,m_pSpriteComponent{spriteComponent}
 	,m_Row{row}
-	,m_Col{ col }
+	,m_Col{col}
 	,m_pSubject{std::make_shared<Subject<TileComponent>>()}
+	,m_pObserver{std::make_shared<MovementObserver>()}
+	,m_HasChanged{false}
 {
 }
 
 void TileComponent::Update()
 {
-	auto command = InputManager::GetInstance().IsActivated({ 0,XBox360Controller::ControllerButton::ButtonB, XBox360Controller::ButtonEventType::OnPressed });
-	if (command.lock()->execute(m_pParent.lock()) == 1)
+	if (m_pObserver->IsNotified())
 	{
-		m_pSubject->Notify(*this);
+		size_t row = m_pObserver->GetRow();
+		size_t col = m_pObserver->GetColumn();
 
-		m_pSpriteComponent.lock()->IncrementRow();
+		if (row == m_Row && col == m_Col)
+		{
+			ChangeTileColor();
+		}
+		m_pObserver->SetIsNotified(false);
 	}
-
 }
 
 void TileComponent::ChangeTileColor()
 {
+	m_pSpriteComponent.lock()->IncrementRow();
 }
 
 std::weak_ptr<Subject<TileComponent>> TileComponent::GetSubject()
 {
 	return m_pSubject;
 	
+}
+
+std::shared_ptr<Observer<MovementComponent>> TileComponent::GetObserver()
+{
+	return m_pObserver;
 }
 

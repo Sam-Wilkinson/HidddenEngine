@@ -26,12 +26,15 @@ public:
 	void Update() override;
 	const Event GetCurrentEvent() const;
 	
-	std::weak_ptr<Hidden::Subject<MovementComponent>> GetSubject();
+	std::weak_ptr<Hidden::Subject<MovementComponent>> GetSubject() const;
 	
 	void MoveUpLeft();
 	void MoveUpRight();
 	void MoveDownLeft();
 	void MoveDownRight();
+
+	int GetRow() const;
+	int GetColumn() const;
 
 private:
 	std::shared_ptr<Hidden::Subject<MovementComponent>> m_pSubject;

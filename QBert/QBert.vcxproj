@@ -178,6 +178,7 @@
     <ClCompile Include="MoveDownLeftCommand.cpp" />
     <ClCompile Include="MoveDownRightCommand.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
+    <ClCompile Include="MovementObserver.cpp" />
     <ClCompile Include="MoveUpLeftCommand.cpp" />
     <ClCompile Include="MoveUpRightCommand.cpp" />
     <ClCompile Include="PyramidScene.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="MoveDownLeftCommand.h" />
     <ClInclude Include="MoveDownRightCommand.h" />
     <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="MovementObserver.h" />
     <ClInclude Include="MoveUpLeftCommand.h" />
     <ClInclude Include="MoveUpRightCommand.h" />
     <ClInclude Include="PyramidScene.h" />

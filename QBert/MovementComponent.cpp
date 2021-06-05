@@ -31,7 +31,7 @@ const MovementComponent::Event MovementComponent::GetCurrentEvent() const
 	return m_CurrentEvent;
 }
 
-std::weak_ptr<Hidden::Subject<MovementComponent>> MovementComponent::GetSubject()
+std::weak_ptr<Hidden::Subject<MovementComponent>> MovementComponent::GetSubject() const
 {
 	return m_pSubject;
 }
@@ -49,7 +49,6 @@ void MovementComponent::MoveUpLeft()
 void MovementComponent::MoveUpRight()
 {
 	--m_Row;
-	++m_Col;
 	Move(-1, 1);
 	m_CurrentEvent = MovementComponent::Event::MoveUpRight;
 	m_pSubject->Notify(*this);
@@ -70,4 +69,15 @@ void MovementComponent::MoveDownRight()
 	Move(1, 0);
 	m_CurrentEvent = MovementComponent::Event::MoveDownRight;
 	m_pSubject->Notify(*this);
+}
+
+int MovementComponent::GetRow() const
+{
+	return m_Row;
+	
+}
+
+int MovementComponent::GetColumn() const
+{
+	return m_Col;
 }

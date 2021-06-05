@@ -99,6 +99,9 @@
     <Filter Include="Source Files\Commands\Movement\MoveDownRight">
       <UniqueIdentifier>{6484a8c5-032e-4346-9c5d-f905a525a4f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Observers\Movement">
+      <UniqueIdentifier>{5bf019f0-2b9a-458e-abb5-e969468bfd11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HealthComponent.cpp">
@@ -164,6 +167,9 @@
     <ClCompile Include="MoveDownLeftCommand.cpp">
       <Filter>Source Files\Commands\Movement\MoveDownLeft</Filter>
     </ClCompile>
+    <ClCompile Include="MovementObserver.cpp">
+      <Filter>Source Files\Observers\Movement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HealthComponent.h">
@@ -228,6 +234,9 @@
     </ClInclude>
     <ClInclude Include="MoveDownLeftCommand.h">
       <Filter>Source Files\Commands\Movement\MoveDownLeft</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementObserver.h">
+      <Filter>Source Files\Observers\Movement</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
