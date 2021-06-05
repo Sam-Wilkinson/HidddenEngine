@@ -6,7 +6,7 @@
 class GameTime final : public Hidden::Singleton<GameTime>
 {
 	friend class Singleton<GameTime>;
-
+	friend class Application;
 
 public:
 
@@ -15,20 +15,20 @@ public:
 	GameTime& operator=(const GameTime& other) = delete;
 	GameTime& operator=(GameTime&& other) = delete;
 
-	const float GetTime()
+	static const float GetTime()
 	{
 		return deltaTime;
 	}
+
+
+
+private:
+	GameTime() {};
+	static float deltaTime;
 
 	void SetTime(float _deltaTime)
 	{
 		deltaTime = _deltaTime;
 	}
-
-private:
-	GameTime()
-		: deltaTime{}
-	{}
-	float deltaTime;
 };
 
