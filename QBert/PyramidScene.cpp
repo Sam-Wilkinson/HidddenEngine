@@ -7,6 +7,8 @@
 #include "SpriteComponent.h"
 #include "RenderComponent.h"
 #include "TileComponent.h"
+#include "MovementComponent.h"
+#include "QbertComponent.h"
 
 // Globals
 #include "InputManager.h"
@@ -19,6 +21,9 @@
 PyramidScene::PyramidScene()
 	:Scene("PyramidScene")
 	,m_PyramidHeight{7}
+	, m_PyramidTopX{float(GameConfig::window.Width) / 2}
+	, m_PyramidTopY{float(GameConfig::window.Height) / 5}
+	, m_TileSize{100}
 {
 
 }
@@ -49,6 +54,26 @@ void PyramidScene::Initialize()
 	//m_Tile->SetLayer(0.0f);
 	//Add(m_Tile);
 
+	auto go = std::make_shared<Hidden::GameObject>();
+
+	auto renderComponent = std::make_shared<Hidden::RenderComponent>();
+	renderComponent->SetDestinationSize(75, 75);
+	auto spriteComponent = std::make_shared<Hidden::SpriteComponent>(renderComponent, 1, 8, 255, 255);
+	spriteComponent->SetTexture("QBert.png");
+	auto movementComponent = std::make_shared<MovementComponent>(m_TileSize, m_TileSize, 0, 0);
+	auto qbertComponent = std::make_shared<QBertComponent>(spriteComponent);
+
+	// Register it as renderable for the scene
+	AddRenderable(renderComponent);
+	// Register the renderComponent to the GameObject
+	go->AddComponent(spriteComponent);
+	go->AddComponent(renderComponent);
+	go->AddComponent(movementComponent);
+	go->AddComponent(qbertComponent);
+	go->SetLayer(0.0f);
+	go->GetTransform().SetPosition(m_PyramidTopX, m_PyramidTopY - m_TileSize / 2);
+	Add(go);
+
 	CreateTiles();
 
 
@@ -71,18 +96,9 @@ void PyramidScene::Render() const
 
 void PyramidScene::CreateTiles()
 {
-	int windowWidth = GameConfig::window.Width;
-	int windowHeight = GameConfig::window.Height;
 
-	int marginY = windowHeight / 5;
-
-	int tileSize = 100;
-
-	float pyramidTopX{ static_cast<float>(windowWidth / 2)};
-	float pyramidTopY{ static_cast<float>(marginY) };
-
-	float tilePosX{pyramidTopX};
-	float tilePosY{pyramidTopY};
+	float tilePosX{m_PyramidTopX};
+	float tilePosY{m_PyramidTopY};
 
 	for (int row{}; row < m_PyramidHeight; ++row)
 	{
@@ -94,12 +110,12 @@ void PyramidScene::CreateTiles()
 		{
 			auto go = std::make_shared<Hidden::GameObject>();
 
-			tilePosX = pyramidTopX - (tileSize - (tileSize / 2)) * row  + (tileSize * col);
+			tilePosX = m_PyramidTopX - (m_TileSize - (m_TileSize / 2)) * row  + (m_TileSize * col);
 			go->GetTransform().MovePosition(tilePosX , tilePosY );
 
 
 			auto renderComponent = std::make_shared<RenderComponent>();
-			renderComponent->SetDestinationSize(tileSize, tileSize);
+			renderComponent->SetDestinationSize(m_TileSize, m_TileSize);
 			auto spriteComponent = std::make_shared<SpriteComponent>(renderComponent, 2, 1, 256, 256);
 			spriteComponent->SetTexture("Level1_Tiles.png");
 
@@ -118,7 +134,7 @@ void PyramidScene::CreateTiles()
 			++col;
 		}
 
-		tilePosY = pyramidTopY + (tileSize * 0.75f) * (row + 1);
+		tilePosY = m_PyramidTopY + (m_TileSize * 0.75f) * (row + 1);
 
 	}
 

@@ -5,12 +5,12 @@
 
 void MovementComponent::Move(int rowOffset, int columnOffset)
 {
-	auto transform = m_pParent.lock()->GetTransform();
+	auto& transform = m_pParent.lock()->GetTransform();
 
 	float movementRow{};
 	float movementCol{};
 
-	// TODO move movement code to a function that does distance between hexTiles
+	// move movement code to a function that does distance between hexTiles
 	movementCol = (static_cast<float>(m_MovementCol) - (static_cast<float>(m_MovementCol) / 2)) * rowOffset + (static_cast<float>(m_MovementCol) * columnOffset);
 	movementRow = (static_cast<float>(m_MovementRow) * 0.75f) * (rowOffset);
 
@@ -40,7 +40,7 @@ void MovementComponent::MoveUpLeft()
 {
 	--m_Row;
 	--m_Col;
-	Move(-1, -1);
+	Move(-1, 0);
 	m_CurrentEvent = MovementComponent::Event::MoveUpLeft;
 	m_pSubject->Notify(*this);
 
@@ -58,7 +58,7 @@ void MovementComponent::MoveUpRight()
 void MovementComponent::MoveDownLeft()
 {
 	++m_Row;
-	Move(1, 0);
+	Move(1, -1);
 	m_CurrentEvent = MovementComponent::Event::MoveDownLeft;
 	m_pSubject->Notify(*this);
 }
@@ -67,7 +67,7 @@ void MovementComponent::MoveDownRight()
 {
 	++m_Row;
 	++m_Col;
-	Move(1, 1);
+	Move(1, 0);
 	m_CurrentEvent = MovementComponent::Event::MoveDownRight;
 	m_pSubject->Notify(*this);
 }

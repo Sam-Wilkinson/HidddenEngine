@@ -18,6 +18,10 @@ private:
 	std::vector<std::shared_ptr<Hidden::GameObject>> m_Pyramid;
 	std::shared_ptr<Hidden::GameObject> m_Tile;
 
+	float m_PyramidTopX;
+	float m_PyramidTopY;
+	int m_TileSize;
+
 	void CreateTiles();
 
 };

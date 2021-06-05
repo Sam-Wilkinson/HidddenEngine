@@ -11,7 +11,6 @@ public:
 	QBertObserver();
 	virtual ~QBertObserver() = default;
 
-
 	QBertObserver(const QBertObserver & other) = default; // copy constructor
 	QBertObserver(QBertObserver && other) noexcept = default; // move constructor
 	QBertObserver& operator=(const QBertObserver & other) = default; // copy assignment

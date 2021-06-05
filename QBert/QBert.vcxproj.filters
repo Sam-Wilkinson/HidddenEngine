@@ -9,35 +9,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Components">
-      <UniqueIdentifier>{efdee0bd-d7b9-4f8f-a6c9-de7b4bb53b24}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Lives">
-      <UniqueIdentifier>{2b44f259-f2f1-48a4-9d94-62da948abf4e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Health">
-      <UniqueIdentifier>{30722c0c-7b7d-4060-af30-9d6331a5de37}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Commands">
       <UniqueIdentifier>{7a84fe88-d891-4cd9-b17e-16e17ce5fe2b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Commands\LoseLife">
       <UniqueIdentifier>{d782144f-0af7-47d5-b7bd-5eafa329c994}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Tile">
-      <UniqueIdentifier>{eff0b060-ea22-4abc-a8e9-be4c5d78749f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Discs">
-      <UniqueIdentifier>{15cedeef-7c5f-41d0-92ff-28f3af7bb55a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Coily">
-      <UniqueIdentifier>{a0154caa-695d-4352-9bdd-7515b78d2298}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Onion">
-      <UniqueIdentifier>{b37ca333-b091-4521-880b-b4e5feb5631e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Score">
-      <UniqueIdentifier>{e773d887-10cd-4a79-b105-8943a4135dec}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Observers">
       <UniqueIdentifier>{ebb0fe62-db5f-4d2e-8617-219a8ba29aa1}</UniqueIdentifier>
@@ -47,9 +23,6 @@
     </Filter>
     <Filter Include="Source Files\Commands\Death">
       <UniqueIdentifier>{96af81bd-09d0-4e12-8301-dd3efdfb6f40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\QBert">
-      <UniqueIdentifier>{46e5280b-b5ca-4cca-b4f1-1ea91bcc8f9c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Observers\QBertObserver">
       <UniqueIdentifier>{fcf0fbeb-dd94-4d0f-9939-8e3748f45a86}</UniqueIdentifier>
@@ -81,11 +54,50 @@
     <Filter Include="Source Files\Scenes\QBertScene">
       <UniqueIdentifier>{0427015d-d427-41a7-bb73-fcd1fc3867e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Commands\Movement">
+      <UniqueIdentifier>{1ffaad5e-9b63-4b6f-ad61-9781ab9a86d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Movement\MoveUpLeft">
+      <UniqueIdentifier>{b1b043dd-08a9-4a54-96b3-56c718393e71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{efdee0bd-d7b9-4f8f-a6c9-de7b4bb53b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Lives">
+      <UniqueIdentifier>{2b44f259-f2f1-48a4-9d94-62da948abf4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Health">
+      <UniqueIdentifier>{30722c0c-7b7d-4060-af30-9d6331a5de37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Tile">
+      <UniqueIdentifier>{eff0b060-ea22-4abc-a8e9-be4c5d78749f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Discs">
+      <UniqueIdentifier>{15cedeef-7c5f-41d0-92ff-28f3af7bb55a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Coily">
+      <UniqueIdentifier>{a0154caa-695d-4352-9bdd-7515b78d2298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Onion">
+      <UniqueIdentifier>{b37ca333-b091-4521-880b-b4e5feb5631e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Score">
+      <UniqueIdentifier>{e773d887-10cd-4a79-b105-8943a4135dec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\QBert">
+      <UniqueIdentifier>{46e5280b-b5ca-4cca-b4f1-1ea91bcc8f9c}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Components\Movement">
       <UniqueIdentifier>{a82a873d-a43e-49cc-a520-f8c49781f81c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Commands\Movement">
-      <UniqueIdentifier>{1ffaad5e-9b63-4b6f-ad61-9781ab9a86d3}</UniqueIdentifier>
+    <Filter Include="Source Files\Commands\Movement\MoveUpRight">
+      <UniqueIdentifier>{c6be06ba-727e-40a9-8da2-e837b33ab755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Movement\MoveDownLeft">
+      <UniqueIdentifier>{57184aa7-4fc2-4492-9fbb-aa4255dfc346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Movement\MoveDownRight">
+      <UniqueIdentifier>{6484a8c5-032e-4346-9c5d-f905a525a4f4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +152,18 @@
     <ClCompile Include="MovementComponent.cpp">
       <Filter>Source Files\Components\Movement</Filter>
     </ClCompile>
+    <ClCompile Include="MoveUpLeftCommand.cpp">
+      <Filter>Source Files\Commands\Movement\MoveUpLeft</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveUpRightCommand.cpp">
+      <Filter>Source Files\Commands\Movement\MoveUpRight</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveDownRightCommand.cpp">
+      <Filter>Source Files\Commands\Movement\MoveDownRight</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveDownLeftCommand.cpp">
+      <Filter>Source Files\Commands\Movement\MoveDownLeft</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HealthComponent.h">
@@ -192,6 +216,18 @@
     </ClInclude>
     <ClInclude Include="MovementComponent.h">
       <Filter>Source Files\Components\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveUpLeftCommand.h">
+      <Filter>Source Files\Commands\Movement\MoveUpLeft</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveUpRightCommand.h">
+      <Filter>Source Files\Commands\Movement\MoveUpRight</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveDownRightCommand.h">
+      <Filter>Source Files\Commands\Movement\MoveDownRight</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveDownLeftCommand.h">
+      <Filter>Source Files\Commands\Movement\MoveDownLeft</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
