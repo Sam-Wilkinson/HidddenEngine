@@ -9,6 +9,7 @@
 #include "TileComponent.h"
 #include "MovementComponent.h"
 #include "QbertComponent.h"
+#include "CoilyComponent.h"
 
 // Globals
 #include "InputManager.h"
@@ -54,13 +55,14 @@ void PyramidScene::Initialize()
 	//m_Tile->SetLayer(0.0f);
 	//Add(m_Tile);
 
+	// Qbert Game Object
 	auto go = std::make_shared<Hidden::GameObject>();
 
 	auto renderComponent = std::make_shared<Hidden::RenderComponent>();
 	renderComponent->SetDestinationSize(75, 75);
 	auto spriteComponent = std::make_shared<Hidden::SpriteComponent>(renderComponent, 1, 8, 255, 255);
 	spriteComponent->SetTexture("QBert.png");
-	auto movementComponent = std::make_shared<MovementComponent>(m_TileSize, m_TileSize, 0, 0);
+	auto qbertMovementComponent = std::make_shared<MovementComponent>(m_TileSize, m_TileSize, 0, 0);
 	auto qbertComponent = std::make_shared<QBertComponent>(spriteComponent);
 
 	// Register it as renderable for the scene
@@ -68,13 +70,41 @@ void PyramidScene::Initialize()
 	// Register the renderComponent to the GameObject
 	go->AddComponent(spriteComponent);
 	go->AddComponent(renderComponent);
-	go->AddComponent(movementComponent);
+	go->AddComponent(qbertMovementComponent);
 	go->AddComponent(qbertComponent);
 	go->SetLayer(0.0f);
 	go->GetTransform().SetPosition(m_PyramidTopX, m_PyramidTopY - m_TileSize / 2);
 	Add(go);
 
 
+	//Coily Game Objects
+	go = std::make_shared<Hidden::GameObject>();
+	
+	renderComponent = std::make_shared<Hidden::RenderComponent>();
+	renderComponent->SetDestinationSize(75, 75);
+	spriteComponent = std::make_shared<Hidden::SpriteComponent>(renderComponent, 1, 8, 256, 256);
+	spriteComponent->SetTexture("Coily.png");
+	auto eggSpriteComponent = std::make_shared<Hidden::SpriteComponent>(renderComponent, 1, 2, 256, 256);
+	eggSpriteComponent->SetTexture("CoilyEgg.png");
+	auto movementComponent = std::make_shared<MovementComponent>(m_TileSize, m_TileSize, 0, 0);
+	auto coilyComponent = std::make_shared<CoilyComponent>(eggSpriteComponent, spriteComponent, movementComponent, static_cast<int>(m_PyramidHeight));
+	
+	qbertMovementComponent->GetSubject().lock()->AddObserver(coilyComponent->GetMovementObserver());
+
+	// Register it as renderable for the scene
+	AddRenderable(renderComponent);
+	// Register the renderComponent to the GameObject
+	go->AddComponent(spriteComponent);
+	go->AddComponent(eggSpriteComponent);
+	go->AddComponent(renderComponent);
+	go->AddComponent(movementComponent);
+	go->AddComponent(coilyComponent);
+	go->SetLayer(0.0f);
+	go->GetTransform().SetPosition(m_PyramidTopX, m_PyramidTopY - m_TileSize / 2);
+	Add(go);
+
+
+	// Tile Game Objects
 	float tilePosX{ m_PyramidTopX };
 	float tilePosY{ m_PyramidTopY };
 
@@ -98,7 +128,7 @@ void PyramidScene::Initialize()
 			spriteComponent->SetTexture("Level1_Tiles.png");
 
 			auto tileComponent = std::make_shared<TileComponent>(row, col, spriteComponent);
-			movementComponent->GetSubject().lock()->AddObserver(tileComponent->GetObserver());
+			qbertMovementComponent->GetSubject().lock()->AddObserver(tileComponent->GetObserver());
 
 			// Register it as renderable for the scene
 			AddRenderable(renderComponent);

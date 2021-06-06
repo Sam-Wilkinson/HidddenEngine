@@ -170,6 +170,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CoilyComponent.cpp" />
     <ClCompile Include="DeathCommand.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="IncrementSprite.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="MovementObserver.cpp" />
     <ClCompile Include="MoveUpLeftCommand.cpp" />
     <ClCompile Include="MoveUpRightCommand.cpp" />
+    <ClCompile Include="PassiveEnemyComponent.cpp" />
     <ClCompile Include="PyramidScene.cpp" />
     <ClCompile Include="QBertComponent.cpp" />
     <ClCompile Include="QBertObserver.cpp" />
@@ -199,6 +201,7 @@
     <ClCompile Include="UIScoreComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoilyComponent.h" />
     <ClInclude Include="DeathCommand.h" />
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="IncrementSprite.h" />
@@ -210,6 +213,7 @@
     <ClInclude Include="MovementObserver.h" />
     <ClInclude Include="MoveUpLeftCommand.h" />
     <ClInclude Include="MoveUpRightCommand.h" />
+    <ClInclude Include="PassiveEnemyComponent.h" />
     <ClInclude Include="PyramidScene.h" />
     <ClInclude Include="QBertApp.h" />
     <ClInclude Include="QBertComponent.h" />

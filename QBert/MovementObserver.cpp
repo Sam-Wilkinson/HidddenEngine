@@ -9,12 +9,12 @@ void MovementObserver::onNotify(const MovementComponent& data)
 	m_IsNotified = true;
 }
 
-size_t MovementObserver::GetColumn()
+int MovementObserver::GetColumn()
 {
 	return m_Col;
 }
 
-size_t MovementObserver::GetRow()
+int MovementObserver::GetRow()
 {
 	return m_Row;
 }

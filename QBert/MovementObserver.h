@@ -17,11 +17,11 @@ public:
 
 	virtual void onNotify(const MovementComponent & data) override;
 
-	size_t GetColumn();
-	size_t GetRow();
+	int GetColumn();
+	int GetRow();
 
 private:
-	size_t m_Row;
-	size_t m_Col;
+	int m_Row;
+	int m_Col;
 };
 

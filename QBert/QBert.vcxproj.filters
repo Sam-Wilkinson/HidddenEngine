@@ -102,6 +102,9 @@
     <Filter Include="Source Files\Observers\Movement">
       <UniqueIdentifier>{5bf019f0-2b9a-458e-abb5-e969468bfd11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\PassiveMob">
+      <UniqueIdentifier>{8c390a5a-90c0-43b0-af4a-8ffaeef24450}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HealthComponent.cpp">
@@ -170,6 +173,12 @@
     <ClCompile Include="MovementObserver.cpp">
       <Filter>Source Files\Observers\Movement</Filter>
     </ClCompile>
+    <ClCompile Include="CoilyComponent.cpp">
+      <Filter>Source Files\Components\Coily</Filter>
+    </ClCompile>
+    <ClCompile Include="PassiveEnemyComponent.cpp">
+      <Filter>Source Files\Components\PassiveMob</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HealthComponent.h">
@@ -237,6 +246,12 @@
     </ClInclude>
     <ClInclude Include="MovementObserver.h">
       <Filter>Source Files\Observers\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilyComponent.h">
+      <Filter>Source Files\Components\Coily</Filter>
+    </ClInclude>
+    <ClInclude Include="PassiveEnemyComponent.h">
+      <Filter>Source Files\Components\PassiveMob</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
